@@ -347,6 +347,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\DashController"/>
       </call>
     </service>
+    <service id="App\Controller\EscapadeController" class="App\Controller\EscapadeController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\EscapadeController"/>
+      </call>
+    </service>
     <service id=".legacy_controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -4818,6 +4825,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DashController" class="App\Controller\DashController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DashController" class="App\Controller\DashController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DashController" class="App\Controller\DashController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EscapadeController" class="App\Controller\EscapadeController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EscapadeController" class="App\Controller\EscapadeController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\EscapadeController" class="App\Controller\EscapadeController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5387,6 +5397,12 @@
     <service id=".service_locator.vdmMuyE.App\Controller\DashController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\DashController"/>
       <argument>App\Controller\DashController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\EscapadeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\EscapadeController"/>
+      <argument>App\Controller\EscapadeController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>

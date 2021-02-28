@@ -259,7 +259,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
      <div class=\"container-scroller\">
        <nav class=\"navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row\">
          <div class=\"text-center navbar-brand-wrapper d-flex align-items-center justify-content-center\">
-           <a class=\"navbar-brand brand-logo mr-5\" href=\"index.html\">test1</a>
+           <a class=\"navbar-brand brand-logo mr-5\" href=\"index.html\">Tunisia Blue Sky</a>
            <a class=\"navbar-brand brand-logo-mini\" href=\"index.html\">test2</a>
          </div>
 
@@ -366,10 +366,10 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
                <span class=\"menu-title\">Dashboard</span>
              </a>
            </li>
-           <li class=\"nav-item\">
-             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#ui-basic\" aria-expanded=\"false\" aria-controls=\"ui-basic\">
+           <li class=\"nav-item\" >
+             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"escapade\" aria-expanded=\"false\" aria-controls=\"ui-basic\">
                <i class=\"icon-layout menu-icon\"></i>
-               <span class=\"menu-title\">UI Elements</span>
+               <span class=\"menu-title\">Escapades</span>
                <i class=\"menu-arrow\"></i>
              </a>
              <div class=\"collapse\" id=\"ui-basic\">
@@ -568,7 +568,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
      <div class=\"container-scroller\">
        <nav class=\"navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row\">
          <div class=\"text-center navbar-brand-wrapper d-flex align-items-center justify-content-center\">
-           <a class=\"navbar-brand brand-logo mr-5\" href=\"index.html\">test1</a>
+           <a class=\"navbar-brand brand-logo mr-5\" href=\"index.html\">Tunisia Blue Sky</a>
            <a class=\"navbar-brand brand-logo-mini\" href=\"index.html\">test2</a>
          </div>
 
@@ -672,10 +672,10 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
                <span class=\"menu-title\">Dashboard</span>
              </a>
            </li>
-           <li class=\"nav-item\">
-             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#ui-basic\" aria-expanded=\"false\" aria-controls=\"ui-basic\">
+           <li class=\"nav-item\" >
+             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"escapade\" aria-expanded=\"false\" aria-controls=\"ui-basic\">
                <i class=\"icon-layout menu-icon\"></i>
-               <span class=\"menu-title\">UI Elements</span>
+               <span class=\"menu-title\">Escapades</span>
                <i class=\"menu-arrow\"></i>
              </a>
              <div class=\"collapse\" id=\"ui-basic\">
