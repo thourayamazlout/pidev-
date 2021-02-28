@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa874016-ba6c-4889-884a-bd1143a59a29" name="Default Changelist" comment="Merge branch 'main' of https://github.com/thourayamazlout/pidev-&#10;&#10;# Conflicts:&#10;#&#9;templates/base.html.twig">
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base2.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +171,7 @@
       <workItem from="1614448023048" duration="722000" />
       <workItem from="1614448763862" duration="707000" />
       <workItem from="1614449733662" duration="2624000" />
-      <workItem from="1614456886438" duration="6110000" />
+      <workItem from="1614456886438" duration="6884000" />
     </task>
     <servers />
   </component>
