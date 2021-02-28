@@ -16,6 +16,8 @@ return [
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\AdminController::index'], null, null, null, false, false, null]],
         '/dash' => [[['_route' => 'dash', '_controller' => 'App\\Controller\\DashController::index'], null, null, null, false, false, null]],
         '/escapade' => [[['_route' => 'escapade', '_controller' => 'App\\Controller\\EscapadeController::index'], null, null, null, false, false, null]],
+        '/evenet' => [[['_route' => 'evenet', '_controller' => 'App\\Controller\\EvenetController::index'], null, null, null, false, false, null]],
+        '/' => [[['_route' => 'globale', '_controller' => 'App\\Controller\\GlobaleController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

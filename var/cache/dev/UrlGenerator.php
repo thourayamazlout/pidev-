@@ -18,4 +18,6 @@ return [
     'admin' => [[], ['_controller' => 'App\\Controller\\AdminController::index'], [], [['text', '/admin']], [], []],
     'dash' => [[], ['_controller' => 'App\\Controller\\DashController::index'], [], [['text', '/dash']], [], []],
     'escapade' => [[], ['_controller' => 'App\\Controller\\EscapadeController::index'], [], [['text', '/escapade']], [], []],
+    'evenet' => [[], ['_controller' => 'App\\Controller\\EvenetController::index'], [], [['text', '/evenet']], [], []],
+    'globale' => [[], ['_controller' => 'App\\Controller\\GlobaleController::index'], [], [['text', '/']], [], []],
 ];

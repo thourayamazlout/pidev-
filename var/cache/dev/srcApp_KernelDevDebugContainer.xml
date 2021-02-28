@@ -354,6 +354,20 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\EscapadeController"/>
       </call>
     </service>
+    <service id="App\Controller\EvenetController" class="App\Controller\EvenetController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\EvenetController"/>
+      </call>
+    </service>
+    <service id="App\Controller\GlobaleController" class="App\Controller\GlobaleController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\GlobaleController"/>
+      </call>
+    </service>
     <service id=".legacy_controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -4828,6 +4842,12 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EscapadeController" class="App\Controller\EscapadeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EscapadeController" class="App\Controller\EscapadeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\EscapadeController" class="App\Controller\EscapadeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EvenetController" class="App\Controller\EvenetController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EvenetController" class="App\Controller\EvenetController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\EvenetController" class="App\Controller\EvenetController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GlobaleController" class="App\Controller\GlobaleController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GlobaleController" class="App\Controller\GlobaleController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\GlobaleController" class="App\Controller\GlobaleController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5403,6 +5423,18 @@
     <service id=".service_locator.vdmMuyE.App\Controller\EscapadeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\EscapadeController"/>
       <argument>App\Controller\EscapadeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\EvenetController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\EvenetController"/>
+      <argument>App\Controller\EvenetController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\GlobaleController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\GlobaleController"/>
+      <argument>App\Controller\GlobaleController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
