@@ -1,0 +1,15 @@
+{% extends 'base2.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="align-center">
+          <h1>inscrivez-vous</h1>
+             {{ form_start(form) }}
+        <div class="form-group" text="red">
+           {{ form_widget(form) }}
+        </div>
+             <button type="submit" class="btn">Validez</button>
+              {{ form_end(form) }}
+             <a href="login" >vous avez déja un compte?</a>
+        </div>
+    </div>
+{% endblock %}

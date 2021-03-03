@@ -438,7 +438,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
              </div>
            </li>
            <li class=\"nav-item\">
-             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#auth\" aria-expanded=\"false\" aria-controls=\"auth\">
+             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"login\" aria-expanded=\"false\" aria-controls=\"auth\">
                <i class=\"icon-head menu-icon\"></i>
                <span class=\"menu-title\">User Pages</span>
                <i class=\"menu-arrow\"></i>
@@ -735,7 +735,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
              </div>
            </li>
            <li class=\"nav-item\">
-             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#auth\" aria-expanded=\"false\" aria-controls=\"auth\">
+             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"login\" aria-expanded=\"false\" aria-controls=\"auth\">
                <i class=\"icon-head menu-icon\"></i>
                <span class=\"menu-title\">User Pages</span>
                <i class=\"menu-arrow\"></i>

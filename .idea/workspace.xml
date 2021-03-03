@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa874016-ba6c-4889-884a-bd1143a59a29" name="Default Changelist" comment="Merge branch 'main' of https://github.com/thourayamazlout/pidev-&#10;&#10;# Conflicts:&#10;#&#9;templates/base.html.twig">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/evenet/event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evenet/event.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/globale/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/globale/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/Container7TTCxdo/removed-ids.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/Container7TTCxdo/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base2.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" afterDir="false" />
@@ -36,6 +37,7 @@
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/6d/6daaa593849b69b6cf84c7dc04daa80533a3877414c2f7d3041257043147d92c.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/6d/6daaa593849b69b6cf84c7dc04daa80533a3877414c2f7d3041257043147d92c.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +165,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../myfirst" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -189,7 +191,10 @@
       <workItem from="1614449733662" duration="2624000" />
       <workItem from="1614456886438" duration="6884000" />
       <workItem from="1614497169633" duration="700000" />
-      <workItem from="1614541363831" duration="469000" />
+      <workItem from="1614541363831" duration="1114000" />
+      <workItem from="1614689519862" duration="6127000" />
+      <workItem from="1614708660613" duration="15032000" />
+      <workItem from="1614771650046" duration="35754000" />
     </task>
     <task id="LOCAL-00001" summary="auto merging escapde">
       <created>1614502501635</created>
@@ -198,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614502501635</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Merge branch 'main' of https://github.com/thourayamazlout/pidev-&#10;&#10;# Conflicts:&#10;#&#9;templates/base.html.twig">
+      <created>1614541877459</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614541877459</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,9 +230,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="auto merging escapde" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto merging escapde" />
+    <MESSAGE value="Merge branch 'main' of https://github.com/thourayamazlout/pidev-&#10;&#10;# Conflicts:&#10;#&#9;templates/base.html.twig" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'main' of https://github.com/thourayamazlout/pidev-&#10;&#10;# Conflicts:&#10;#&#9;templates/base.html.twig" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="703" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614809420569">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="703" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1614809420569" />
+    <state x="577" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614812396000">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="577" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1614812396000" />
+    <state x="690" y="279" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614810951730">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="279" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1614810951730" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1614801107417">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1614801107417" />
     <state x="184" y="86" key="MergeDialog" timestamp="1614441415296">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -233,5 +262,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1614441296538" />
+    <state x="616" y="243" key="run.anything.popup" timestamp="1614721184553">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1614721184553" />
   </component>
 </project>

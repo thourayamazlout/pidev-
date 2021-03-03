@@ -1,0 +1,18 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Hello ReclamationController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="align-center">
+    {{ form_start(form) }}
+    <div class=" form-group" t>
+        {{ form_row(form.textreclamation) }}
+        {{ form_row(form.idUser) }}
+    </div>
+    <button type="submit" class="btn">Envoyez</button>
+    {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}
