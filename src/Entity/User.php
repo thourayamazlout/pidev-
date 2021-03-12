@@ -7,12 +7,17 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * User
  *
  * @ORM\Table(name="user")
  * @ORM\Entity
+ * @UniqueEntity(
+ *  fields={"email"},
+ *  message= " l email est déja utilisé "
+ * )
  */
 class User implements UserInterface
 {
@@ -71,7 +76,7 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="Password", type="string", length=20, nullable=false)
+     * @ORM\Column(name="Password", type="string", length=255, nullable=false)
      *@Assert\Length(
      *      min = 8,
      *      minMessage = "votre mot de passe doit etre de longeur minimal 8 "
@@ -88,9 +93,20 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="Roles", type="string", length=20, nullable=false, options={"default"="'ROLE_USER'"})
+     * @ORM\Column(name="Role", type="string", length=20, nullable=false, options={"default"="'ROLE_USER'"})
      */
-    private $roles = '\'ROLE_USER\'';
+    public $role = '\'ROLE_USER\'';
+    /**
+     * @var string
+     * @ORM\Column (type="string",length=255)
+     *
+     */
+    private $image;
+
+
+
+
+    private $roles=array();
 
 
 
@@ -164,17 +180,42 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRoles(): ?string
+    public function getRole()
     {
-        return $this->roles;
+        return $this->role;
     }
 
-    public function setRoles(string $roles): self
+    public function setRole(string $role): self
     {
-        $this->roles = $roles;
+        $this->role = $role;
 
         return $this;
     }
+    public function getRoles()
+    { if ($this->getRole()=="'ROLE_USER'"){
+        $roles[] = 'ROLE_USER';
+    } elseif ($this->getRole()=="'ROLE_ADMIN'"){
+        $roles[] = 'ROLE_ADMIN';
+    }
+
+
+    // TODO: Implement getRoles() method.
+        return array_unique($roles);
+    }
+    public function setRoles(array $roles): self
+    {
+        $this->roles=$roles;
+        return $this;
+    }
+    public function getImage(){
+        return $this->image;
+    }
+    public  function setImage($image)
+    {
+        $this->image= $image;
+        return $this;
+    }
+
     public function  getSalt()
     {
         // TODO: Implement getSalt() method.

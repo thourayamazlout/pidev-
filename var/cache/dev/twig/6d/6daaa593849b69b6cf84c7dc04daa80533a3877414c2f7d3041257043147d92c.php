@@ -438,7 +438,10 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
              </div>
            </li>
            <li class=\"nav-item\">
-             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"login\" aria-expanded=\"false\" aria-controls=\"auth\">
+             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"";
+        // line 208
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_index");
+        echo "\" aria-expanded=\"false\" aria-controls=\"auth\">
                <i class=\"icon-head menu-icon\"></i>
                <span class=\"menu-title\">User Pages</span>
                <i class=\"menu-arrow\"></i>
@@ -451,9 +454,12 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
              </div>
            </li>
            <li class=\"nav-item\">
-             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#error\" aria-expanded=\"false\" aria-controls=\"error\">
+             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"";
+        // line 221
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reclamation_index");
+        echo "\" aria-expanded=\"false\" aria-controls=\"error\">
                <i class=\"icon-ban menu-icon\"></i>
-               <span class=\"menu-title\">Error pages</span>
+               <span class=\"menu-title\">reclamation</span>
                <i class=\"menu-arrow\"></i>
              </a>
              <div class=\"collapse\" id=\"error\">
@@ -523,7 +529,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
 
     public function getDebugInfo()
     {
-        return array (  505 => 244,  495 => 243,  480 => 245,  478 => 243,  387 => 155,  383 => 154,  379 => 153,  335 => 112,  258 => 37,  248 => 36,  238 => 33,  236 => 32,  226 => 31,  216 => 30,  214 => 29,  204 => 28,  185 => 25,  170 => 272,  166 => 271,  160 => 268,  156 => 267,  152 => 266,  148 => 265,  144 => 264,  138 => 261,  134 => 260,  130 => 259,  126 => 258,  120 => 255,  114 => 251,  112 => 36,  108 => 34,  105 => 31,  102 => 28,  98 => 25,  94 => 24,  85 => 18,  81 => 17,  77 => 16,  73 => 15,  67 => 12,  63 => 11,  59 => 10,  48 => 1,);
+        return array (  511 => 244,  501 => 243,  486 => 245,  484 => 243,  459 => 221,  443 => 208,  387 => 155,  383 => 154,  379 => 153,  335 => 112,  258 => 37,  248 => 36,  238 => 33,  236 => 32,  226 => 31,  216 => 30,  214 => 29,  204 => 28,  185 => 25,  170 => 272,  166 => 271,  160 => 268,  156 => 267,  152 => 266,  148 => 265,  144 => 264,  138 => 261,  134 => 260,  130 => 259,  126 => 258,  120 => 255,  114 => 251,  112 => 36,  108 => 34,  105 => 31,  102 => 28,  98 => 25,  94 => 24,  85 => 18,  81 => 17,  77 => 16,  73 => 15,  67 => 12,  63 => 11,  59 => 10,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -735,7 +741,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
              </div>
            </li>
            <li class=\"nav-item\">
-             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"login\" aria-expanded=\"false\" aria-controls=\"auth\">
+             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"{{ path('user_index') }}\" aria-expanded=\"false\" aria-controls=\"auth\">
                <i class=\"icon-head menu-icon\"></i>
                <span class=\"menu-title\">User Pages</span>
                <i class=\"menu-arrow\"></i>
@@ -748,9 +754,9 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
              </div>
            </li>
            <li class=\"nav-item\">
-             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#error\" aria-expanded=\"false\" aria-controls=\"error\">
+             <a class=\"nav-link\" data-toggle=\"collapse\" href=\"{{ path('reclamation_index') }}\" aria-expanded=\"false\" aria-controls=\"error\">
                <i class=\"icon-ban menu-icon\"></i>
-               <span class=\"menu-title\">Error pages</span>
+               <span class=\"menu-title\">reclamation</span>
                <i class=\"menu-arrow\"></i>
              </a>
              <div class=\"collapse\" id=\"error\">

@@ -13,6 +13,7 @@ namespace Symfony\Component\Cache\Adapter;
 
 use Predis\Connection\Aggregate\ClusterInterface;
 use Predis\Connection\Aggregate\PredisCluster;
+use Predis\Connection\Aggregate\ReplicationInterface;
 use Predis\Response\Status;
 use Symfony\Component\Cache\Exception\InvalidArgumentException;
 use Symfony\Component\Cache\Exception\LogicException;
@@ -72,7 +73,7 @@ class RedisTagAwareAdapter extends AbstractTagAwareAdapter
     public function __construct($redisClient, string $namespace = '', int $defaultLifetime = 0, MarshallerInterface $marshaller = null)
     {
         if ($redisClient instanceof \Predis\ClientInterface && $redisClient->getConnection() instanceof ClusterInterface && !$redisClient->getConnection() instanceof PredisCluster) {
-            throw new InvalidArgumentException(sprintf('Unsupported Predis cluster connection: only "%s" is, "%s" given.', PredisCluster::class, \get_class($redisClient->getConnection())));
+            throw new InvalidArgumentException(sprintf('Unsupported Predis cluster connection: only "%s" is, "%s" given.', PredisCluster::class, get_debug_type($redisClient->getConnection())));
         }
 
         if (\defined('Redis::OPT_COMPRESSION') && ($redisClient instanceof \Redis || $redisClient instanceof \RedisArray || $redisClient instanceof \RedisCluster)) {
@@ -149,7 +150,11 @@ class RedisTagAwareAdapter extends AbstractTagAwareAdapter
     {
         $lua = <<<'EOLUA'
             local v = redis.call('GET', KEYS[1])
-            redis.call('DEL', KEYS[1])
+            local e = redis.pcall('UNLINK', KEYS[1])
+
+            if type(e) ~= 'number' then
+                redis.call('DEL', KEYS[1])
+            end
 
             if not v or v:len() <= 13 or v:byte(1) ~= 0x9D or v:byte(6) ~= 0 or v:byte(10) ~= 0x5F then
                 return ''
@@ -278,7 +283,14 @@ EOLUA;
             return $this->redisEvictionPolicy;
         }
 
-        foreach ($this->getHosts() as $host) {
+        $hosts = $this->getHosts();
+        $host = reset($hosts);
+        if ($host instanceof \Predis\Client && $host->getConnection() instanceof ReplicationInterface) {
+            // Predis supports info command only on the master in replication environments
+            $hosts = [$host->getClientFor('master')];
+        }
+
+        foreach ($hosts as $host) {
             $info = $host->info('Memory');
             $info = $info['Memory'] ?? $info;
 

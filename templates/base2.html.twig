@@ -61,7 +61,7 @@
                                 <ul id="navigation">
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About</a></li>
-                                    <li><a href="{{ path('evenet') }}">Evenement</a></li>
+                                    <li><a href="{{ path('reclamation') }}">Reclamation</a></li>
                                     <li><a href="blog.html">Blog</a>
                                         <ul class="submenu">
                                             <li><a href="blog.html">Blog</a></li>
@@ -71,10 +71,14 @@
                                     <li><a href="#">Pages</a>
                                         <ul class="submenu">
                                             <li><a href="rooms.html">Rooms</a>
-                                            <li><a href="elements.html">Element</a></li>
+                                            <li><a href="{{ path('reclamation') }}">reclamation</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="signup">S'incrire /se connecter</a></li>
+                                    {%  if  not app.user %}
+                                    <li><a href="{{ path('signup') }}">S'incrire /se connecter</a></li>
+                                    {% else %}
+                                    <li><a href="{{ path('logout') }}">déconnexion</a></li>
+                                    {% endif %}
                                 </ul>
                             </nav>
                         </div>

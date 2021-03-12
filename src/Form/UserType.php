@@ -18,8 +18,8 @@ class UserType extends AbstractType
             ->add('prenom')
             ->add('email')
             ->add('Password',PasswordType::class)
-            ->add('Username',PasswordType::class)
-            ->add('roles')
+            ->add('Username')
+            ->add('role')
         ;
     }
 

@@ -83,6 +83,7 @@ class TagAwareAdapter implements TagAwareAdapterInterface, TagAwareCacheInterfac
                 $tagsByKey = [];
                 foreach ($deferred as $key => $item) {
                     $tagsByKey[$key] = $item->newMetadata[CacheItem::METADATA_TAGS] ?? [];
+                    $item->metadata = $item->newMetadata;
                 }
 
                 return $tagsByKey;
@@ -223,14 +224,10 @@ class TagAwareAdapter implements TagAwareAdapterInterface, TagAwareCacheInterfac
     /**
      * {@inheritdoc}
      *
-     * @param string $prefix
-     *
      * @return bool
      */
-    public function clear(/*string $prefix = ''*/)
+    public function clear(string $prefix = '')
     {
-        $prefix = 0 < \func_num_args() ? (string) func_get_arg(0) : '';
-
         if ('' !== $prefix) {
             foreach ($this->deferred as $key => $item) {
                 if (0 === strpos($key, $prefix)) {
