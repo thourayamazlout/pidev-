@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservationesc{% endblock %}
+
+{% block body %}
+    <h1>Details de la reservation:</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Ref</th>
+                <td>{{ reservationesc.ref }}</td>
+            </tr>
+            <tr>
+                <th>escapade</th>
+                <td>{{ reservationesc.escapade.title }}</td>
+            </tr>
+            <tr>
+                <th>Nbrepers</th>
+                <td>{{ reservationesc.nbrepers }}</td>
+            </tr>
+            <tr>
+                <th>Dateres</th>
+                <td>{{ reservationesc.dateres ? reservationesc.dateres|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ reservationesc.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ reservationesc.tel }}</td>
+            </tr>
+
+            <tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('reservationesc_index') }}"><label class="badge badge-info">retourner</label></a>
+
+    <a href="{{ path('reservationesc_edit', {'ref': reservationesc.ref}) }}"><label class="badge badge-warning">Modifier</label></a>
+
+    {{ include('reservationesc/_delete_form.html.twig') }}
+{% endblock %}

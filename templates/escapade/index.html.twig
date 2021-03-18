@@ -1,7 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EscapadeController!{% endblock %}
+{% block title %}Escapade index{% endblock %}
 
 {% block body %}
-hello escapade
+    <h1>Nos Escapades </h1>
+<form class="text-right" method="post" action="{{ path("rechercher") }}" >
+    <input type="text" name="recherche">
+    <input type="submit" class="btn-dark"  value="rechercher" >
+</form>
+    <form>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id_esc</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Titre</th>
+                <th>Ville</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <a href="{{ path('escapade_new') }}"><label class="badge badge-info">Créer une escapade</label></a>
+        {% for escapade in escapades %}
+            <tr>
+                <td>{{ escapade.id_esc }}</td>
+                <td>{{ escapade.price }}</td>
+                <td>{{ escapade.histoire }}</td>
+                <td>{{ escapade.title }}</td>
+                <td>{{ escapade.ville}}</td>
+                <td>
+                    <a href="{{ path('escapade_show', {'id_esc': escapade.id_esc}) }}"><label class="badge badge-success">Afficher</label></a>
+                    <a href="{{ path('escapade_edit', {'id_esc': escapade.id_esc}) }}"><label class="badge badge-warning">Modifier</label></a>
+
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</form>
+
 {% endblock %}

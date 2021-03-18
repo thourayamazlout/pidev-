@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservationesc index{% endblock %}
+
+{% block body %}
+
+    <h1>La liste des Reservations:</h1>
+    <form  method="post" action="{{ path("rechercherr") }}" >
+        <input type="text" name="recherche">
+        <input type="submit" class="btn-dark"  value="rechercher" >
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ref</th>
+                <th>Nbrepers</th>
+                <th>Dateres</th>
+                <th>Commentaire</th>
+                <th>Tel</th>
+                <th>escapade choisie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservationesc in reservationescs %}
+            <tr>
+                <td>{{ reservationesc.ref }}</td>
+                <td>{{ reservationesc.nbrepers }}</td>
+                <td>{{ reservationesc.dateres ? reservationesc.dateres|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservationesc.commentaire }}</td>
+                <td>{{ reservationesc.tel }}</td>
+                <td>{{ reservationesc.escapade.title }}</td>
+                <td>
+                    <a href="{{ path('reservationesc_show', {'ref': reservationesc.ref}) }}"><label class="badge badge-success">Afficher</label></a>
+                    <a href="{{ path('reservationesc_edit', {'ref': reservationesc.ref}) }}"><label class="badge badge-warning">Modifier</label></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> </br>
+        <a href="{{ path('list_index') }}"> <label class="align-right" > Imprimer la liste des reservations </label></a>
+</form>
+    {#  <a href="{{ path('reservationesc_new') }}">Create new</a>  #}
+{% endblock %}

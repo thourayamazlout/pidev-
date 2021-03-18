@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reservationesc{% endblock %}
+
+{% block body %}
+    <h1>Create new Reservationesc</h1>
+    {% endfor %}
+    {{ include('reservationesc/_form.html.twig') }}
+
+    <a href="{{ path('reservationesc_index') }}"><label class="badge badge-info">retourner</label></a>
+{% endblock %}

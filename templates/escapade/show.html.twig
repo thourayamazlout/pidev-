@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Escapade{% endblock %}
+
+{% block body %}
+
+
+    <table class="table">
+        <tbody>
+        <p class="card-description">
+            Details sur l'escapade
+        </p>
+        <div class="form-group">
+            <tr>
+                <th>Id_esc</th>
+                <td>{{ escapade.id_esc }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ escapade.price }}</td>
+            </tr>
+            <tr>
+                <th>Histoire</th>
+                <td>{{ escapade.histoire }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ escapade.title }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ escapade.ville }}</td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+
+    <a href="{{ path('escapade_index') }}"><label class="badge badge-info">retourner</label></a>
+
+    <a href="{{ path('escapade_edit', {'id_esc': escapade.id_esc}) }}"><label class="badge badge-warning">Modifier</label></a>
+
+    {{ include('escapade/_delete_form.html.twig') }}
+{% endblock %}

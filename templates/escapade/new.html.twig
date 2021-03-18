@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Escapade{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path('escapade_index') }}"><label class="badge badge-info">retourner</label></a>
+    <h2 class="card-title" >Créer une nouvelle escapade:</h2>
+
+    {{ include('escapade/_form.html.twig') }}
+
+
+{% endblock %}

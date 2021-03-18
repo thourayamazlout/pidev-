@@ -1,0 +1,39 @@
+{% block body %}
+
+    <h1>La liste des Reservations:</h1>
+    <table class="table">
+            <thead>
+            <tr>
+                <th>Ref</th>
+                <th>Nbrepers</th>
+                <th>Dateres</th>
+                <th>Commentaire</th>
+                <th>Tel</th>
+                <th>escapade choisie</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for reservationesc in reservationescs %}
+                <tr>
+                    <td>{{ reservationesc.ref }}</td>
+                    <td>{{ reservationesc.nbrepers }}</td>
+                    <td>{{ reservationesc.dateres ? reservationesc.dateres|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ reservationesc.commentaire }}</td>
+                    <td>{{ reservationesc.tel }}</td>
+                    <td>{{ reservationesc.escapade.title }}</td>
+                    <td>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    <style>
+        table {
+            border:3px solid black;
+            border-collapse:collapse;
+            width:100%;
+            margin:auto;
+        }
+    </style>
+{% endblock %}

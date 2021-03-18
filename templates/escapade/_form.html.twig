@@ -1,0 +1,31 @@
+ {{ form_start(form) }}
+
+{{ form_widget(form) }}
+
+<button class="badge badge-info">{{ button_label|default('enregistrer') }}</button>
+
+{{ form_end(form) }}
+
+{#
+{% block body %}
+
+    {{form_start(form)}}
+
+    {{ form_label(form.price, 'Prix:') }}
+    {{ form_widget(form.price) }}
+    {{ form_label(form.title, 'Nom:') }}
+    {{ form_widget(form.title) }}
+    {{ form_label(form.ville, 'Ville:') }}
+    {{ form_widget(form.ville) }}
+    {{ form_label(form.histoire, 'Description:') }}
+    {{ form_widget(form.histoire) }}
+
+
+    {{form_rest(form)}}
+    <button class="badge badge-info">{{ button_label|default('enregistrer') }}</button>
+    {{ form_end(form) }}
+
+
+
+{% endblock %}
+    #}

@@ -1,0 +1,30 @@
+
+
+
+    {{form_start(form)}}
+
+    {{ form_label(form.nbrepers, 'Nombre de personnes:') }}
+    {{ form_widget(form.nbrepers) }}
+    {{ form_errors(form.nbrepers) }}
+    {{ form_label(form.tel, 'Num tel:') }}
+    {{ form_widget(form.tel) }}
+    {{ form_errors(form.tel) }}
+    {{ form_label(form.commentaire, 'Commentaire:') }}
+    {{ form_widget(form.commentaire) }}
+    {{ form_label(form.dateres,'Date') }}
+    {{ form_widget(form.dateres) }}
+   {# {{form_rest(form)}} #}
+      {{ form_label(form.escapade,'Escapade') }} </br>
+    {{ form_widget(form.escapade) }}</br>
+    </br>
+    </br>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+
+
+    {{ form_end(form) }}
+
+
+
+
+

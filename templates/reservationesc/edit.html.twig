@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la reservation{% endblock %}
+
+{% block body %}
+    <h1>Modifier la reservation:</h1>
+
+ {#   <label class="badge badge-info"> {{ include('reservationesc/_form.html.twig', {'button_label': 'Update'}) }}</label> #}
+    {{ include('reservationesc/_form.html.twig', {'button_label': 'Update'}) }}
+    <a href="{{ path('reservationesc_index') }}"><label class="badge badge-info">retourner</label></a>
+
+    {{ include('reservationesc/_delete_form.html.twig') }}
+{% endblock %}

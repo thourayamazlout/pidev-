@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Escapade{% endblock %}
+
+{% block body %}
+    <h1>Modifier Escapade:</h1>
+
+    {#  <label class="badge badge-info">{{ include('escapade/_form.html.twig', {'button_label': 'Update'}) }}</label>#}
+    {{ include('escapade/_form.html.twig', {'button_label': 'Update'}) }}
+    <a href="{{ path('escapade_index') }}"><label class="badge badge-info">retourner</label></a>
+
+    {{ include('escapade/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('escapade_delete', {'id_esc': escapade.id_esc}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ escapade.id_esc) }}">
+    <button class="badge badge-danger">Supprimer</button>
+</form>
