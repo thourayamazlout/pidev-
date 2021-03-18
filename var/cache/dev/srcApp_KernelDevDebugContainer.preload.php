@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/Container2XQVXqh/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerPCM1Dt0/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -39,15 +39,22 @@ $classes[] = 'App\Controller\DashController';
 $classes[] = 'App\Controller\EscapadeController';
 $classes[] = 'App\Controller\EvenetController';
 $classes[] = 'App\Controller\GlobaleController';
+$classes[] = 'App\Controller\PanierController';
 $classes[] = 'App\Controller\ReclamationController';
 $classes[] = 'App\Controller\ReclamationfrontController';
+$classes[] = 'App\Controller\ReservationescController';
 $classes[] = 'App\Controller\SecurityController';
+$classes[] = 'App\Controller\ThourayaController';
 $classes[] = 'App\Controller\UserController';
+$classes[] = 'App\Form\EscapadeType';
 $classes[] = 'App\Form\Reclamation1Type';
 $classes[] = 'App\Form\ReclamationType';
 $classes[] = 'App\Form\RegistrationType';
+$classes[] = 'App\Form\ReservationescType';
 $classes[] = 'App\Form\UserType';
+$classes[] = 'App\Repository\EscapadeRepository';
 $classes[] = 'App\Repository\ReclamationRepository';
+$classes[] = 'App\Repository\ReservationescRepository';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Dbal\ManagerRegistryAwareConnectionProvider';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Registry';
 $classes[] = 'Doctrine\DBAL\Tools\Console\Command\RunSqlCommand';

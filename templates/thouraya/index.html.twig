@@ -35,7 +35,7 @@
     {% for escapade in escapades %}
 
         <tr>
-            <td><img src="{{ asset('uploads/image/' ~ escapade.image) }}" </td>
+            <td><img src="{{ asset('uploads/images/' ~ escapade.image) }}"  </td>
             <td>{{ escapade.title }}</td>
             <td>{{ escapade.price }}</td>
             <td>{{ escapade.histoire }}</td>
@@ -105,7 +105,7 @@
                             $('#search').empty();
                             $.each(JSON.parse(retour), function(i, obj) {
                                 $('#all').hide();
-                                $('#search').append(' <div class="col-xl-4 col-lg-4 col-md-6"> <div class="single-blog mb-40"><div class="blog-img mb-30"> <img src="uploads/image/'+ obj.image+'" alt=""> </div><div><div class="blog-cap-top d-flex justify-content-between mb-3"></div><div class="blog-cap-mid" style=" font-size: 1.5%;"><p><b> '+obj.title +'</b></br> <b> '+ obj.price +' </b></br> <b>  '+ obj.histoire +' dt/jour</b><b> '+ obj.ville +' </b></p></div></div></div></div> ');
+                                $('#search').append(' <div class="col-xl-4 col-lg-4 col-md-6"> <div class="single-blog mb-40"><div class="blog-img mb-30"> <img src="uploads/images/'+ obj.image+'" alt=""> </div><div><div class="blog-cap-top d-flex justify-content-between mb-3"></div><div class="blog-cap-mid" style=" font-size: 1.5%;"><p><b> '+obj.title +'</b></br> <b> '+ obj.price +' </b></br> <b>  '+ obj.histoire +' dt/jour</b><b> '+ obj.ville +' </b></p></div></div></div></div> ');
                             });
                         }
                         else

@@ -383,6 +383,13 @@
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\GlobaleController"/>
       </call>
     </service>
+    <service id="App\Controller\PanierController" class="App\Controller\PanierController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\PanierController"/>
+      </call>
+    </service>
     <service id="App\Controller\ReclamationController" class="App\Controller\ReclamationController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -397,11 +404,25 @@
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\ReclamationfrontController"/>
       </call>
     </service>
+    <service id="App\Controller\ReservationescController" class="App\Controller\ReservationescController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\ReservationescController"/>
+      </call>
+    </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\SecurityController"/>
+      </call>
+    </service>
+    <service id="App\Controller\ThourayaController" class="App\Controller\ThourayaController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\ThourayaController"/>
       </call>
     </service>
     <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
@@ -410,6 +431,9 @@
       <call method="setContainer">
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\UserController"/>
       </call>
+    </service>
+    <service id="App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
     </service>
     <service id="App\Form\Reclamation1Type" class="App\Form\Reclamation1Type" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
@@ -420,10 +444,21 @@
     <service id="App\Form\RegistrationType" class="App\Form\RegistrationType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\ReservationescType" class="App\Form\ReservationescType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Repository\EscapadeRepository" class="App\Repository\EscapadeRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\ReclamationRepository" class="App\Repository\ReclamationRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ReservationescRepository" class="App\Repository\ReservationescRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -843,9 +878,11 @@
         <argument>Vich\UploaderBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\EscapadeType</argument>
         <argument>App\Form\Reclamation1Type</argument>
         <argument>App\Form\ReclamationType</argument>
         <argument>App\Form\RegistrationType</argument>
+        <argument>App\Form\ReservationescType</argument>
         <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -1183,7 +1220,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.yusV2FW"/>
+      <argument type="service" id=".service_locator.SmHhgNv"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3288,7 +3325,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.hoZBgZa"/>
+      <argument type="service" id=".service_locator.MPFLPyf"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3833,13 +3870,6 @@
     </service>
     <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap">
       <call method="add">
-        <argument type="service" id=".security.request_matcher.5dJADCx"/>
-        <argument type="collection">
-          <argument>ROLE_ADMIN</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
         <argument type="service" id=".security.request_matcher.wb_z0oY"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
@@ -4337,9 +4367,6 @@
         <argument key="security.firewall.map.context.dev" type="service" id="security.firewall.map.context.dev"/>
         <argument key="security.firewall.map.context.main" type="service" id="security.firewall.map.context.main"/>
       </argument>
-    </service>
-    <service id=".security.request_matcher.5dJADCx" class="Symfony\Component\HttpFoundation\RequestMatcher">
-      <argument>^/admin</argument>
     </service>
     <service id=".security.request_matcher.wb_z0oY" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/reclamation</argument>
@@ -5318,28 +5345,45 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GlobaleController" class="App\Controller\GlobaleController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GlobaleController" class="App\Controller\GlobaleController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GlobaleController" class="App\Controller\GlobaleController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PanierController" class="App\Controller\PanierController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PanierController" class="App\Controller\PanierController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\PanierController" class="App\Controller\PanierController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ReclamationController" class="App\Controller\ReclamationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ReclamationController" class="App\Controller\ReclamationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ReclamationController" class="App\Controller\ReclamationController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ReclamationfrontController" class="App\Controller\ReclamationfrontController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ReclamationfrontController" class="App\Controller\ReclamationfrontController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ReclamationfrontController" class="App\Controller\ReclamationfrontController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ReservationescController" class="App\Controller\ReservationescController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ReservationescController" class="App\Controller\ReservationescController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ReservationescController" class="App\Controller\ReservationescController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ThourayaController" class="App\Controller\ThourayaController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ThourayaController" class="App\Controller\ThourayaController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ThourayaController" class="App\Controller\ThourayaController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\Reclamation1Type" class="App\Form\Reclamation1Type" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\Reclamation1Type" class="App\Form\Reclamation1Type" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationType" class="App\Form\RegistrationType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationType" class="App\Form\RegistrationType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReservationescType" class="App\Form\ReservationescType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ReservationescType" class="App\Form\ReservationescType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EscapadeRepository" class="App\Repository\EscapadeRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\EscapadeRepository" class="App\Repository\EscapadeRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReclamationRepository" class="App\Repository\ReclamationRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ReclamationRepository" class="App\Repository\ReclamationRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReservationescRepository" class="App\Repository\ReservationescRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ReservationescRepository" class="App\Repository\ReservationescRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.Kbr2i2X" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5621,6 +5665,37 @@
         <argument>make:migration</argument>
       </call>
     </service>
+    <service id=".service_locator.x8CHoOb" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="escapadeRepository" type="service" id="App\Repository\EscapadeRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.v._lgSC" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="escapade" type="service" id=".errored..service_locator.v._lgSC.App\Entity\Escapade"/>
+      </argument>
+    </service>
+    <service id=".service_locator.RyG8oou" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\EscapadeRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.p1khKgj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="escapadeRepository" type="service" id="App\Repository\EscapadeRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.h9bDyFt" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.Ky9OCSE" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5631,6 +5706,24 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="user" type="service" id=".errored..service_locator.HnZsTA7.App\Entity\Reclamation"/>
+      </argument>
+    </service>
+    <service id=".service_locator.4I7NXQo" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="reservationescRepository" type="service" id="App\Repository\ReservationescRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.1FQI5oC" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="reservationesc" type="service" id=".errored..service_locator.1FQI5oC.App\Entity\Reservationesc"/>
+      </argument>
+    </service>
+    <service id=".service_locator.JGCEl82" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\ReservationescRepository"/>
       </argument>
     </service>
     <service id=".service_locator.fd.UL7I" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -5658,29 +5751,67 @@
         <argument key="user" type="service" id=".errored..service_locator.ch4Jgvl.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.YV7sp4F" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.uPKkxqj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="Normalizer" type="service" id="serializer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.0TSRxA." class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\EscapadeController::delete" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\EscapadeController::edit" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\EscapadeController::index" type="service" id=".service_locator.x8CHoOb"/>
+        <argument key="App\Controller\EscapadeController::recherche" type="service" id=".service_locator.RyG8oou"/>
+        <argument key="App\Controller\EscapadeController::show" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\PanierController::delete" type="service" id=".service_locator.h9bDyFt"/>
+        <argument key="App\Controller\PanierController::favoris" type="service" id=".service_locator.h9bDyFt"/>
+        <argument key="App\Controller\PanierController::index" type="service" id=".service_locator.p1khKgj"/>
         <argument key="App\Controller\ReclamationController::delete" type="service" id=".service_locator.Ky9OCSE"/>
         <argument key="App\Controller\ReclamationController::edit" type="service" id=".service_locator.Ky9OCSE"/>
         <argument key="App\Controller\ReclamationController::show" type="service" id=".service_locator.Ky9OCSE"/>
         <argument key="App\Controller\ReclamationfrontController::edit" type="service" id=".service_locator.HnZsTA7"/>
+        <argument key="App\Controller\ReservationescController::delete" type="service" id=".service_locator.1FQI5oC"/>
+        <argument key="App\Controller\ReservationescController::edit" type="service" id=".service_locator.1FQI5oC"/>
+        <argument key="App\Controller\ReservationescController::index" type="service" id=".service_locator.4I7NXQo"/>
+        <argument key="App\Controller\ReservationescController::list" type="service" id=".service_locator.4I7NXQo"/>
+        <argument key="App\Controller\ReservationescController::recherche" type="service" id=".service_locator.JGCEl82"/>
+        <argument key="App\Controller\ReservationescController::show" type="service" id=".service_locator.1FQI5oC"/>
         <argument key="App\Controller\SecurityController::edit" type="service" id=".service_locator.PCa85Br"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.fd.UL7I"/>
         <argument key="App\Controller\SecurityController::new" type="service" id=".service_locator.gPh6X_L"/>
         <argument key="App\Controller\SecurityController::show" type="service" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\ThourayaController::index" type="service" id=".service_locator.x8CHoOb"/>
+        <argument key="App\Controller\ThourayaController::searchEscapade" type="service" id=".service_locator.uPKkxqj"/>
         <argument key="App\Controller\UserController::delete" type="service" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\UserController::edit" type="service" id=".service_locator.PCa85Br"/>
         <argument key="App\Controller\UserController::new" type="service" id=".service_locator.gPh6X_L"/>
         <argument key="App\Controller\UserController::show" type="service" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\EscapadeController:delete" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\EscapadeController:edit" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\EscapadeController:index" type="service" id=".service_locator.x8CHoOb"/>
+        <argument key="App\Controller\EscapadeController:recherche" type="service" id=".service_locator.RyG8oou"/>
+        <argument key="App\Controller\EscapadeController:show" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\PanierController:delete" type="service" id=".service_locator.h9bDyFt"/>
+        <argument key="App\Controller\PanierController:favoris" type="service" id=".service_locator.h9bDyFt"/>
+        <argument key="App\Controller\PanierController:index" type="service" id=".service_locator.p1khKgj"/>
         <argument key="App\Controller\ReclamationController:delete" type="service" id=".service_locator.Ky9OCSE"/>
         <argument key="App\Controller\ReclamationController:edit" type="service" id=".service_locator.Ky9OCSE"/>
         <argument key="App\Controller\ReclamationController:show" type="service" id=".service_locator.Ky9OCSE"/>
         <argument key="App\Controller\ReclamationfrontController:edit" type="service" id=".service_locator.HnZsTA7"/>
+        <argument key="App\Controller\ReservationescController:delete" type="service" id=".service_locator.1FQI5oC"/>
+        <argument key="App\Controller\ReservationescController:edit" type="service" id=".service_locator.1FQI5oC"/>
+        <argument key="App\Controller\ReservationescController:index" type="service" id=".service_locator.4I7NXQo"/>
+        <argument key="App\Controller\ReservationescController:list" type="service" id=".service_locator.4I7NXQo"/>
+        <argument key="App\Controller\ReservationescController:recherche" type="service" id=".service_locator.JGCEl82"/>
+        <argument key="App\Controller\ReservationescController:show" type="service" id=".service_locator.1FQI5oC"/>
         <argument key="App\Controller\SecurityController:edit" type="service" id=".service_locator.PCa85Br"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.fd.UL7I"/>
         <argument key="App\Controller\SecurityController:new" type="service" id=".service_locator.gPh6X_L"/>
         <argument key="App\Controller\SecurityController:show" type="service" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\ThourayaController:index" type="service" id=".service_locator.x8CHoOb"/>
+        <argument key="App\Controller\ThourayaController:searchEscapade" type="service" id=".service_locator.uPKkxqj"/>
         <argument key="App\Controller\UserController:delete" type="service" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\UserController:edit" type="service" id=".service_locator.PCa85Br"/>
         <argument key="App\Controller\UserController:new" type="service" id=".service_locator.gPh6X_L"/>
@@ -5746,12 +5877,14 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.yusV2FW" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.SmHhgNv" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\EscapadeType" type="service" id="App\Form\EscapadeType"/>
         <argument key="App\Form\Reclamation1Type" type="service" id="App\Form\Reclamation1Type"/>
         <argument key="App\Form\ReclamationType" type="service" id="App\Form\ReclamationType"/>
         <argument key="App\Form\RegistrationType" type="service" id="App\Form\RegistrationType"/>
+        <argument key="App\Form\ReservationescType" type="service" id="App\Form\ReservationescType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
@@ -5772,10 +5905,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.hoZBgZa" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.MPFLPyf" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\EscapadeRepository" type="service" id="App\Repository\EscapadeRepository"/>
         <argument key="App\Repository\ReclamationRepository" type="service" id="App\Repository\ReclamationRepository"/>
+        <argument key="App\Repository\ReservationescRepository" type="service" id="App\Repository\ReservationescRepository"/>
       </argument>
     </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
@@ -6005,6 +6140,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.1qxpWX0" method="withContext"/>
     </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\PanierController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\PanierController"/>
+      <argument>App\Controller\PanierController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
     <service id=".service_locator.1qxpWX0.App\Controller\ReclamationController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ReclamationController"/>
       <argument>App\Controller\ReclamationController</argument>
@@ -6017,9 +6158,21 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.1qxpWX0" method="withContext"/>
     </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\ReservationescController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ReservationescController"/>
+      <argument>App\Controller\ReservationescController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
     <service id=".service_locator.1qxpWX0.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\ThourayaController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ThourayaController"/>
+      <argument>App\Controller\ThourayaController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.1qxpWX0" method="withContext"/>
     </service>
@@ -6172,12 +6325,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.YV7sp4F"/>
+      <argument type="service" id=".service_locator.0TSRxA."/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.YV7sp4F"/>
+      <argument type="service" id=".service_locator.0TSRxA."/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -6187,8 +6340,10 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.v._lgSC.App\Entity\Escapade" class="App\Entity\Escapade"/>
     <service id=".errored..service_locator.Ky9OCSE.App\Entity\Reclamation" class="App\Entity\Reclamation"/>
     <service id=".errored..service_locator.HnZsTA7.App\Entity\Reclamation" class="App\Entity\Reclamation"/>
+    <service id=".errored..service_locator.1FQI5oC.App\Entity\Reservationesc" class="App\Entity\Reservationesc"/>
     <service id=".errored..service_locator.PCa85Br.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.ch4Jgvl.App\Entity\User" class="App\Entity\User"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
@@ -6611,7 +6766,7 @@
     <service id="Vich\UploaderBundle\Form\Type\VichImageType" alias="vich_uploader.form.type.image"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.YV7sp4F"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.0TSRxA."/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

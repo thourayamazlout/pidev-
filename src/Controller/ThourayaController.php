@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 class ThourayaController extends AbstractController
 {
     /**
-     * @Route("/thouraya", name="thouraya")
+     * @Route("/thouraya/esca", name="thouraya")
      */
     public function index(EscapadeRepository $escapadeRepository): Response
     {
@@ -27,7 +27,7 @@ class ThourayaController extends AbstractController
     }
 
     /**
-     * @Route("/reserver", name="reserver", methods={"GET","POST"})
+     * @Route("thouraya/reserver", name="reserver", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {

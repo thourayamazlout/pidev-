@@ -190,11 +190,11 @@ final class TableMetadataStorage implements MetadataStorage
             throw MetadataStorageError::notInitialized();
         }
 
-        $expectedTable = $this->getExpectedTable();
+        /*$expectedTable = $this->getExpectedTable();
 
         if ($this->needsUpdate($expectedTable) !== null) {
             throw MetadataStorageError::notUpToDate();
-        }
+        }*/
     }
 
     private function getExpectedTable(): Table
