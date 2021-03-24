@@ -1,0 +1,11 @@
+{% extends 'back1.html.twig' %}
+
+{% block title %}mes voitures{% endblock %}
+
+{% block body %}
+    <h1>Cree une location</h1>
+
+    {{ include('locationv/_form.html.twig') }}
+
+    <a href="{{ path('locationv_index') }}"><label class="badge badge-info">back to list </label></a>
+{% endblock %}

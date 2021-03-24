@@ -1,0 +1,128 @@
+{% extends 'front1.html.twig' %}
+
+{% block title %}Hello VoitureController!{% endblock %}
+
+{% block body %}
+
+
+    <!-- voiture Start -->
+    <br/>
+    <br/>
+    <br/>
+<span id="t">
+<div class="blog-area blog-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <!-- Seciton Tittle  -->
+                    <div class="font-back-tittle mb-50">
+                        <div class="archivment-front">
+                            <h3> Voitures de location à Tunisie
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div>
+
+
+            <input type="text" id="searchValue" class="form-control" placeholder="Search">
+            <br>
+            <div id='all' class="row">
+
+                {% for voiture in voitures %}
+
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <!-- Single Blog -->
+                    <div class="single-blog mb-40">
+                        <div class="blog-img mb-30">
+                            <img src="{{ asset('uploads/images/' ~ voiture.image) }}" alt="">
+                        </div>
+                        <div>
+                                <div class="blog-cap-top d-flex justify-content-between mb-3">
+                                                <div class="col-12">
+
+                                <!--<a href="{{ path('detail') }}" class="btn"> Louer </a> -->
+                                <a href="{{ path('frontvoiture_edit', {'id': voiture.id|default('Your default value here') }) }}" class="btn"> Ajouter au panier</a>
+                                                </div>
+                            </div>
+                            <div class="blog-cap-mid" style=" font-size: 1.5%;">
+                                <p>  <b> {{ voiture.Modele }} </b>
+
+                                                              </br> <b>{{ voiture.Description }} </b>
+                                                              </br> <b> {{ voiture.Prix }} dt/jour</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                {% else %}
+                    <tr>
+                        <td colspan="9">no records found</td>
+                    </tr>
+                {% endfor %}
+
+
+        </div>
+
+            <div id="search" class="row">
+            </div>
+        </div>
+    </div>
+</span>
+
+
+
+    <!-- voiture End -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#searchValue").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte
+                afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est
+                « search » pour faire la recherche */
+
+                6
+
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est
+                    envoyée */
+                    url : "{{ path('searchfrontVoiture') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    type : 'GET',
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la
+                    zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le
+                    nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#search').empty();
+                            $.each(JSON.parse(retour), function(i, obj) {
+                                $('#all').hide();
+                                $('#search').append(' <div class="col-xl-4 col-lg-4 col-md-6"> <div class="single-blog mb-40"><div class="blog-img mb-30"> <img src="uploads/images/'+ obj.image+'" alt=""> </div><div><div class="blog-cap-top d-flex justify-content-between mb-3"><a href="{{ path('detail') }}" class="btn"> Louer </a></div><div class="blog-cap-mid" style=" font-size: 1.5%;"><p><b> '+obj.Modele +'</b></br> <b> '+ obj.Description +' </b></br> <b>  '+ obj.Prix +' dt/jour</b></p></div></div></div></div> ');
+                            });
+                        }
+                        else
+                        {
+                            $('#all').show();
+                            $('#search').empty();
+                            $('#search').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+
+{% endblock %}
+

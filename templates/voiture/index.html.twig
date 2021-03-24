@@ -1,0 +1,114 @@
+{% extends 'back1.html.twig' %}
+{% block title %}mes voitures{% endblock %}
+
+{% block body %}
+    <h1>Nos voitures </h1>
+
+        <input type="text" id="searchValue" class="form-control" placeholder="Search">
+
+
+    <table class="table" id="t">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Modele</th>
+                <th>Marque</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Boite_MA</th>
+                <th>Ville</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="all">
+        {% for voiture in voitures %}
+            <tr>
+                <td>{{ voiture.id }}</td>
+                <td>{{ voiture.Matricule }}</td>
+                <td>{{ voiture.Modele }}</td>
+                <td>{{ voiture.Marque }}</td>
+                <td>{{ voiture.Prix }}</td>
+                <td>{{ voiture.Description }}</td>
+                <td>{{ voiture.BoiteMA }}</td>
+                <td>{{ voiture.Ville }}</td>
+                <td> <img src="{{ asset('uploads/images/' ~ voiture.image) }}" alt="" style="width: 70px;height: 70px"></td>
+
+                <td>
+                    <a href="{{ path('voiture_show', {'id': voiture.id}) }}"> <label class="badge badge-success">show </label></a>
+                    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}">  <label class="badge badge-warning">edit </label></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+        <tbody id="search">
+        </tbody>
+    </table>
+
+    <a href="{{ path('voiture_new') }}"> <label class="badge badge-info"> Create new </label></a>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#searchValue").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte
+                afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est
+                « search » pour faire la recherche */
+
+                6
+
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est
+                    envoyée */
+                    url : "{{ path('searchVoiture') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    type : 'GET',
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la
+                    zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le
+                    nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#t tbody#search').empty();
+                            $.each(JSON.parse(retour), function(i, obj) {
+                                $('#t tbody#all').hide();
+                                $('#t tbody#search').append('<tr>' +
+                                    '<td> '+obj.id+'</td>' +
+                                    '<td> '+obj.Matricule+' </td>' +
+                                    ' <td>'+obj.Modele+' </td>' +
+                                    '<td> '+obj.Marque+'</td>' +
+                                    '<td> '+obj.Prix+' </td> ' +
+                                    '<td>'+obj.Description+' </td> ' +
+                                    '<td> '+obj.Boite_MA+' </td> ' +
+                                    '<td>'+obj.Ville+' </td> ' +
+                                    '<a href="voiture_edit/'+obj.id+'">modifier</a> </br>' +
+                                    '<a href="voiture_delete/'+obj.id+'">supprimer</a></td></tr>');
+                            });
+                        }
+                        else
+                        {
+                            $('#t tbody#all').show();
+                            $('#t tbody#search').empty();
+                            $('#t tbody#search').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+
+{% endblock %}

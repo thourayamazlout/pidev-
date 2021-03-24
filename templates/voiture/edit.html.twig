@@ -1,0 +1,14 @@
+{% extends 'back1.html.twig' %}
+
+{% block title %}mes voitures{% endblock %}
+
+
+{% block body %}
+    <h1> Modifier une voiture</h1>
+
+    {{ include('voiture/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('voiture_index') }}"> <label class="badge badge-info"> back to list </label></a>
+
+    {{ include('voiture/_delete_form.html.twig') }}
+{% endblock %}

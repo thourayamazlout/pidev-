@@ -1,0 +1,55 @@
+{% extends 'back1.html.twig' %}
+
+{% block title %}mes voitures{% endblock %}
+{% block body %}
+    <h1>Liste des locations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Numtel</th>
+                <th>Startat</th>
+                <th>Endat</th>
+                <th>Heuredebut</th>
+                <th>Heurefin</th>
+                <th>Permis</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for locationv in locationvs %}
+            <tr>
+                <td>{{ locationv.id }}</td>
+                <td>{{ locationv.Nom }}</td>
+                <td>{{ locationv.Prenom }}</td>
+                <td>{{ locationv.Numerodetelephone }}</td>
+                <td>{{ locationv.startat ? locationv.startat|date('Y-m-d') : '' }}</td>
+                <td>{{ locationv.endat ? locationv.endat|date('Y-m-d') : '' }}</td>
+                <td>{{ locationv.heuredebut ? locationv.heuredebut|date('H:i:s') : '' }}</td>
+                <td>{{ locationv.heurefin ? locationv.heurefin|date('H:i:s') : '' }}</td>
+                <td> <img src="{{ asset('uploads/images/' ~ locationv.Permis) }}" alt="" style="width: 70px;height: 70px"></td>
+
+                <td>
+                    <a href="{{ path('locationv_show', {'id': locationv.id}) }}"> <label class="badge badge-success"> show </label></a>
+                    <a href="{{ path('voiture_editdispo', {'id': locationv.voiture.id|default('Your default value here') }) }}">  <label class="badge badge-warning">edit </label></a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(locationvs) }}
+    </div>
+    <br/>
+    <a href="{{ path('locationv_new') }}"> <label class="badge badge-info"> Create new </label></a>
+    <a href="{{ path('list_index') }}"> <label class="badge badge-info"> Imprimer la liste </label></a>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'back1.html.twig' %}
+
+{% block title %}mes voitures{% endblock %}
+
+{% block body %}
+    <h1>Location</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ locationv.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ locationv.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ locationv.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Numerodetelephone</th>
+                <td>{{ locationv.Numerodetelephone }}</td>
+            </tr>
+            <tr>
+                <th>Startat</th>
+                <td>{{ locationv.startat ? locationv.startat|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Endat</th>
+                <td>{{ locationv.endat ? locationv.endat|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Heuredebut</th>
+                <td>{{ locationv.heuredebut ? locationv.heuredebut|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Heurefin</th>
+                <td>{{ locationv.heurefin ? locationv.heurefin|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Permis</th>
+                <td>{{ locationv.Permis}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('locationv_index') }}"> <label class="badge badge-info">back to list </label></a>
+
+    <a href="{{ path('locationv_edit', {'id': locationv.id}) }}"> <label class="badge badge-warning">edit </label></a>
+
+    {{ include('locationv/_delete_form.html.twig') }}
+{% endblock %}

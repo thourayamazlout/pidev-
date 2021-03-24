@@ -1,0 +1,59 @@
+{% extends 'front1.html.twig' %}
+
+{% block title %}Hello VoitureController!{% endblock %}
+
+{% block body %}
+
+    {% if items | length > 0 %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th> Voiture</th>
+            <th> Prix</th>
+            <th> Quantité</th>
+            <th> Total</th>
+            <th> Supprimer</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.voiture.Modele}}</td>
+            <td>{{ item.voiture.Prix}}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.voiture.Prix * item.quantity }}</td>
+            <td>
+                <a href="{{ path('voiture_remove', {'id': item.voiture.id}) }}" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3"> Totale : </td>
+            <td> {{ total }}</td>
+            <td> </td>
+
+        </tr>
+        </tfoot>
+    </table>
+    {% else %}
+    <p> Le panier est vide </p>
+    {% endif %}
+    <br/>
+<div>
+        <div class="form-row text-center">
+            <div class="col-12">
+
+        <a href="{{ path('detail') }}" class="btn" class="btn btn-primary"> Louer </a>
+            </div>
+        </div>
+    </div>
+<br/>
+
+{% endblock %}
+
