@@ -23,6 +23,7 @@
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
       <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -80,6 +81,10 @@
       <parameter key="SwiftmailerBundle" type="collection">
         <parameter key="path">E:\xampp\php\pidevartefact\vendor\symfony\swiftmailer-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
+      </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="path">E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -240,7 +245,7 @@
       <parameter>bootstrap_4_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">E:\xampp\php\pidevartefact/templates</parameter>
-    <parameter key="web_profiler.debug_toolbar.intercept_redirects">true</parameter>
+    <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
     <parameter key="monolog.use_microseconds">true</parameter>
     <parameter key="monolog.swift_mailer.handlers" type="collection"/>
@@ -277,6 +282,11 @@
       <parameter key="default">swiftmailer.mailer.default</parameter>
     </parameter>
     <parameter key="swiftmailer.default_mailer">default</parameter>
+    <parameter key="knp_paginator.template.pagination">@KnpPaginator/Pagination/sliding.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">3</parameter>
+    <parameter key="knp_paginator.page_limit">null</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -398,11 +408,28 @@
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\EvenetController"/>
       </call>
     </service>
+    <service id="App\Controller\FrontvoitureController" class="App\Controller\FrontvoitureController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\FrontvoitureController"/>
+      </call>
+    </service>
     <service id="App\Controller\GlobaleController" class="App\Controller\GlobaleController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\GlobaleController"/>
+      </call>
+    </service>
+    <service id="App\Controller\LocationvController" class="App\Controller\LocationvController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
+    <service id="App\Controller\Panier2Controller" class="App\Controller\Panier2Controller" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\Panier2Controller"/>
       </call>
     </service>
     <service id="App\Controller\PanierController" class="App\Controller\PanierController" public="true" autowire="true" autoconfigure="true">
@@ -454,7 +481,26 @@
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\UserController"/>
       </call>
     </service>
+    <service id="App\Controller\VoitureController" class="App\Controller\VoitureController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\VoitureController"/>
+      </call>
+    </service>
+    <service id="App\Form\AcceptType" class="App\Form\AcceptType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\FrontType" class="App\Form\FrontType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\LocationvType" class="App\Form\LocationvType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\PropertySearchType" class="App\Form\PropertySearchType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\Reclamation1Type" class="App\Form\Reclamation1Type" autowire="true" autoconfigure="true">
@@ -475,7 +521,14 @@
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\VoitureType" class="App\Form\VoitureType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Repository\EscapadeRepository" class="App\Repository\EscapadeRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\LocationvRepository" class="App\Repository\LocationvRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -488,6 +541,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\VoitureRepository" class="App\Repository\VoitureRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -911,13 +968,18 @@
         <argument>Vich\UploaderBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\AcceptType</argument>
         <argument>App\Form\EscapadeType</argument>
+        <argument>App\Form\FrontType</argument>
+        <argument>App\Form\LocationvType</argument>
+        <argument>App\Form\PropertySearchType</argument>
         <argument>App\Form\Reclamation1Type</argument>
         <argument>App\Form\ReclamationType</argument>
         <argument>App\Form\RegistrationType</argument>
         <argument>App\Form\ReservationescType</argument>
         <argument>App\Form\ResetPassType</argument>
         <argument>App\Form\UserType</argument>
+        <argument>App\Form\VoitureType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1254,7 +1316,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.mkY7b84"/>
+      <argument type="service" id=".service_locator.8niB2yB"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1561,6 +1623,7 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.ar.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ar.xliff</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
@@ -1577,6 +1640,7 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.bg.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.bg.xliff</argument>
           </argument>
           <argument key="bs" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.bs.xlf</argument>
@@ -1594,6 +1658,7 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.cs.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.cs.xliff</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
@@ -1602,12 +1667,14 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.da.xliff</argument>
           </argument>
           <argument key="de" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.de.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.de.xliff</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
@@ -1619,12 +1686,14 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.en.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.en.xliff</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.es.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.es.xliff</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
@@ -1634,11 +1703,13 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.eu.xliff</argument>
           </argument>
           <argument key="fa" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fa.xliff</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
@@ -1651,6 +1722,7 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.fr.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fr.xliff</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
@@ -1672,6 +1744,7 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.hu.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.hu.xliff</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
@@ -1682,17 +1755,20 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.id.xliff</argument>
           </argument>
           <argument key="it" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.it.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.it.xliff</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ja.xliff</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
@@ -1704,6 +1780,7 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.lt.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.lt.xliff</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
@@ -1725,6 +1802,7 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.nl.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.nl.xliff</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
@@ -1735,12 +1813,14 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.no.xliff</argument>
           </argument>
           <argument key="pl" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.pl.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pl.xliff</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
@@ -1752,17 +1832,20 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pt_BR.xliff</argument>
           </argument>
           <argument key="ro" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ro.xliff</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.ru.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ru.xliff</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
@@ -1794,6 +1877,7 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sv.xliff</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
@@ -1810,12 +1894,14 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.tr.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.tr.xliff</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.uk.yaml</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.uk.xliff</argument>
           </argument>
           <argument key="vi" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
@@ -1835,12 +1921,19 @@
           <argument key="vn" type="collection">
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations\messages.vn.yaml</argument>
           </argument>
+          <argument key="ky" type="collection">
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ky.xliff</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sw.xliff</argument>
+          </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
           <argument>E:\xampp\php\pidevartefact\vendor\symfony\validator/Resources/translations</argument>
           <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations</argument>
           <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations</argument>
           <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations</argument>
+          <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations</argument>
           <argument>E:\xampp\php\pidevartefact/translations</argument>
           <argument>E:\xampp\php\pidevartefact\vendor\symfony\framework-bundle/translations</argument>
           <argument>E:\xampp\php\pidevartefact\src/Resources/FrameworkBundle/translations</argument>
@@ -1869,6 +1962,7 @@
           <argument>E:\xampp\php\pidevartefact\src/Resources/VichUploaderBundle/translations</argument>
           <argument>E:\xampp\php\pidevartefact\vendor\symfony\swiftmailer-bundle/translations</argument>
           <argument>E:\xampp\php\pidevartefact\src/Resources/SwiftmailerBundle/translations</argument>
+          <argument>E:\xampp\php\pidevartefact\src/Resources/KnpPaginatorBundle/translations</argument>
           <argument>E:\xampp\php\pidevartefact\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
@@ -1877,6 +1971,7 @@
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\form/Resources/translations</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\security-core/Resources/translations</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\vich\uploader-bundle/translations</argument>
+            <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/translations</argument>
             <argument>translations</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\framework-bundle/translations</argument>
             <argument>E:\xampp\php\pidevartefact\src/Resources/FrameworkBundle/translations</argument>
@@ -1905,6 +2000,7 @@
             <argument>E:\xampp\php\pidevartefact\src/Resources/VichUploaderBundle/translations</argument>
             <argument>E:\xampp\php\pidevartefact\vendor\symfony\swiftmailer-bundle/translations</argument>
             <argument>E:\xampp\php\pidevartefact\src/Resources/SwiftmailerBundle/translations</argument>
+            <argument>E:\xampp\php\pidevartefact\src/Resources/KnpPaginatorBundle/translations</argument>
             <argument>E:\xampp\php\pidevartefact\src/Resources/translations</argument>
           </argument>
         </argument>
@@ -2350,6 +2446,14 @@
         <argument type="collection">
           <argument type="service" id="data_collector.router"/>
           <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>onKernelRequest</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2800,6 +2904,46 @@
           <argument>onTerminate</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
@@ -3398,7 +3542,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.QfaCRKM"/>
+      <argument type="service" id=".service_locator.PlWvuS8"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4525,6 +4669,9 @@
       <call method="addExtension">
         <argument type="service" id="Vich\UploaderBundle\Twig\Extension\UploaderExtension"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -4648,6 +4795,14 @@
       <call method="addPath">
         <argument>E:\xampp\php\pidevartefact\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
         <argument>!Swiftmailer</argument>
+      </call>
+      <call method="addPath">
+        <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>E:\xampp\php\pidevartefact\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>!KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>E:\xampp\php\pidevartefact/templates</argument>
@@ -4847,7 +5002,7 @@
       <tag name="kernel.event_subscriber"/>
       <tag name="container.hot_path"/>
       <argument type="service" id="twig"/>
-      <argument>true</argument>
+      <argument>false</argument>
       <argument>2</argument>
       <argument type="service" id="router.default" on-invalid="ignore"/>
       <argument>^/((index|app(_[\w]+)?)\.php/)?_wdt</argument>
@@ -5508,6 +5663,52 @@
     <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
       <tag name="swiftmailer.default.plugin"/>
     </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator" public="true" lazy="true">
+      <tag name="proxy" interface="Knp\Component\Pager\PaginatorInterface"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="request_stack"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+          <argument key="pageOutOfRange">ignore</argument>
+          <argument key="defaultLimit">10</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <tag name="container.hot_path"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">@KnpPaginator/Pagination/sliding.html.twig</argument>
+        <argument key="defaultSortableTemplate">@KnpPaginator/Pagination/sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">@KnpPaginator/Pagination/filtration.html.twig</argument>
+        <argument key="defaultPageRange">3</argument>
+        <argument key="defaultPageLimit">null</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5520,9 +5721,17 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EvenetController" class="App\Controller\EvenetController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EvenetController" class="App\Controller\EvenetController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\EvenetController" class="App\Controller\EvenetController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\FrontvoitureController" class="App\Controller\FrontvoitureController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\FrontvoitureController" class="App\Controller\FrontvoitureController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\FrontvoitureController" class="App\Controller\FrontvoitureController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GlobaleController" class="App\Controller\GlobaleController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GlobaleController" class="App\Controller\GlobaleController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GlobaleController" class="App\Controller\GlobaleController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\LocationvController" class="App\Controller\LocationvController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\LocationvController" class="App\Controller\LocationvController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Panier2Controller" class="App\Controller\Panier2Controller" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Panier2Controller" class="App\Controller\Panier2Controller" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Panier2Controller" class="App\Controller\Panier2Controller" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PanierController" class="App\Controller\PanierController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PanierController" class="App\Controller\PanierController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\PanierController" class="App\Controller\PanierController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5544,8 +5753,19 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\VoitureController" class="App\Controller\VoitureController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\VoitureController" class="App\Controller\VoitureController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\VoitureController" class="App\Controller\VoitureController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AcceptType" class="App\Form\AcceptType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\AcceptType" class="App\Form\AcceptType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\FrontType" class="App\Form\FrontType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\FrontType" class="App\Form\FrontType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\LocationvType" class="App\Form\LocationvType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\LocationvType" class="App\Form\LocationvType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PropertySearchType" class="App\Form\PropertySearchType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\PropertySearchType" class="App\Form\PropertySearchType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\Reclamation1Type" class="App\Form\Reclamation1Type" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\Reclamation1Type" class="App\Form\Reclamation1Type" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" abstract="true"/>
@@ -5558,14 +5778,20 @@
     <service id=".abstract.instanceof.App\Form\ResetPassType" class="App\Form\ResetPassType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\VoitureType" class="App\Form\VoitureType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\VoitureType" class="App\Form\VoitureType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EscapadeRepository" class="App\Repository\EscapadeRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EscapadeRepository" class="App\Repository\EscapadeRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LocationvRepository" class="App\Repository\LocationvRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\LocationvRepository" class="App\Repository\LocationvRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReclamationRepository" class="App\Repository\ReclamationRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ReclamationRepository" class="App\Repository\ReclamationRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReservationescRepository" class="App\Repository\ReservationescRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ReservationescRepository" class="App\Repository\ReservationescRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\VoitureRepository" class="App\Repository\VoitureRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\VoitureRepository" class="App\Repository\VoitureRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.Kbr2i2X" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5865,16 +6091,41 @@
         <argument key="repository" type="service" id="App\Repository\EscapadeRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.p1khKgj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Cf7H.rj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="escapadeRepository" type="service" id="App\Repository\EscapadeRepository"/>
         <argument key="session" type="service" id="session"/>
+        <argument key="voitureRepository" type="service" id="App\Repository\VoitureRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.uPKkxqj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="Normalizer" type="service" id="serializer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.flN_Hay" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="locationvRepository" type="service" id="App\Repository\LocationvRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.cgH2fF0" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="locationv" type="service" id=".errored..service_locator.cgH2fF0.App\Entity\Locationv"/>
       </argument>
     </service>
     <service id=".service_locator.h9bDyFt" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.p1khKgj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="escapadeRepository" type="service" id="App\Repository\EscapadeRepository"/>
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
@@ -5941,13 +6192,19 @@
         <argument key="users" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.uPKkxqj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.rD.UmJG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="Normalizer" type="service" id="serializer"/>
+        <argument key="voitureRepository" type="service" id="App\Repository\VoitureRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.EiMnm.." class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.VzwXyoC" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="voiture" type="service" id=".errored..service_locator.VzwXyoC.App\Entity\Voiture"/>
+      </argument>
+    </service>
+    <service id=".service_locator.EVJBVZv" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\EscapadeController::delete" type="service" id=".service_locator.v._lgSC"/>
@@ -5955,6 +6212,16 @@
         <argument key="App\Controller\EscapadeController::index" type="service" id=".service_locator.x8CHoOb"/>
         <argument key="App\Controller\EscapadeController::recherche" type="service" id=".service_locator.RyG8oou"/>
         <argument key="App\Controller\EscapadeController::show" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\FrontvoitureController::index" type="service" id=".service_locator.Cf7H.rj"/>
+        <argument key="App\Controller\FrontvoitureController::searchVoiture" type="service" id=".service_locator.uPKkxqj"/>
+        <argument key="App\Controller\LocationvController::delete" type="service" id=".service_locator.cgH2fF0"/>
+        <argument key="App\Controller\LocationvController::edit" type="service" id=".service_locator.cgH2fF0"/>
+        <argument key="App\Controller\LocationvController::index" type="service" id=".service_locator.flN_Hay"/>
+        <argument key="App\Controller\LocationvController::list" type="service" id=".service_locator.flN_Hay"/>
+        <argument key="App\Controller\LocationvController::show" type="service" id=".service_locator.cgH2fF0"/>
+        <argument key="App\Controller\Panier2Controller::add" type="service" id=".service_locator.h9bDyFt"/>
+        <argument key="App\Controller\Panier2Controller::index" type="service" id=".service_locator.Cf7H.rj"/>
+        <argument key="App\Controller\Panier2Controller::remove" type="service" id=".service_locator.h9bDyFt"/>
         <argument key="App\Controller\PanierController::delete" type="service" id=".service_locator.h9bDyFt"/>
         <argument key="App\Controller\PanierController::favoris" type="service" id=".service_locator.h9bDyFt"/>
         <argument key="App\Controller\PanierController::index" type="service" id=".service_locator.p1khKgj"/>
@@ -5979,11 +6246,27 @@
         <argument key="App\Controller\UserController::edit" type="service" id=".service_locator.PCa85Br"/>
         <argument key="App\Controller\UserController::new" type="service" id=".service_locator.gPh6X_L"/>
         <argument key="App\Controller\UserController::show" type="service" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\VoitureController::delete" type="service" id=".service_locator.VzwXyoC"/>
+        <argument key="App\Controller\VoitureController::edit" type="service" id=".service_locator.VzwXyoC"/>
+        <argument key="App\Controller\VoitureController::editdispo" type="service" id=".service_locator.VzwXyoC"/>
+        <argument key="App\Controller\VoitureController::index" type="service" id=".service_locator.rD.UmJG"/>
+        <argument key="App\Controller\VoitureController::searchVoiture" type="service" id=".service_locator.uPKkxqj"/>
+        <argument key="App\Controller\VoitureController::show" type="service" id=".service_locator.VzwXyoC"/>
         <argument key="App\Controller\EscapadeController:delete" type="service" id=".service_locator.v._lgSC"/>
         <argument key="App\Controller\EscapadeController:edit" type="service" id=".service_locator.v._lgSC"/>
         <argument key="App\Controller\EscapadeController:index" type="service" id=".service_locator.x8CHoOb"/>
         <argument key="App\Controller\EscapadeController:recherche" type="service" id=".service_locator.RyG8oou"/>
         <argument key="App\Controller\EscapadeController:show" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\FrontvoitureController:index" type="service" id=".service_locator.Cf7H.rj"/>
+        <argument key="App\Controller\FrontvoitureController:searchVoiture" type="service" id=".service_locator.uPKkxqj"/>
+        <argument key="App\Controller\LocationvController:delete" type="service" id=".service_locator.cgH2fF0"/>
+        <argument key="App\Controller\LocationvController:edit" type="service" id=".service_locator.cgH2fF0"/>
+        <argument key="App\Controller\LocationvController:index" type="service" id=".service_locator.flN_Hay"/>
+        <argument key="App\Controller\LocationvController:list" type="service" id=".service_locator.flN_Hay"/>
+        <argument key="App\Controller\LocationvController:show" type="service" id=".service_locator.cgH2fF0"/>
+        <argument key="App\Controller\Panier2Controller:add" type="service" id=".service_locator.h9bDyFt"/>
+        <argument key="App\Controller\Panier2Controller:index" type="service" id=".service_locator.Cf7H.rj"/>
+        <argument key="App\Controller\Panier2Controller:remove" type="service" id=".service_locator.h9bDyFt"/>
         <argument key="App\Controller\PanierController:delete" type="service" id=".service_locator.h9bDyFt"/>
         <argument key="App\Controller\PanierController:favoris" type="service" id=".service_locator.h9bDyFt"/>
         <argument key="App\Controller\PanierController:index" type="service" id=".service_locator.p1khKgj"/>
@@ -6008,6 +6291,12 @@
         <argument key="App\Controller\UserController:edit" type="service" id=".service_locator.PCa85Br"/>
         <argument key="App\Controller\UserController:new" type="service" id=".service_locator.gPh6X_L"/>
         <argument key="App\Controller\UserController:show" type="service" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\VoitureController:delete" type="service" id=".service_locator.VzwXyoC"/>
+        <argument key="App\Controller\VoitureController:edit" type="service" id=".service_locator.VzwXyoC"/>
+        <argument key="App\Controller\VoitureController:editdispo" type="service" id=".service_locator.VzwXyoC"/>
+        <argument key="App\Controller\VoitureController:index" type="service" id=".service_locator.rD.UmJG"/>
+        <argument key="App\Controller\VoitureController:searchVoiture" type="service" id=".service_locator.uPKkxqj"/>
+        <argument key="App\Controller\VoitureController:show" type="service" id=".service_locator.VzwXyoC"/>
       </argument>
     </service>
     <service id=".service_locator.anofQPJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6069,16 +6358,21 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.mkY7b84" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.8niB2yB" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\AcceptType" type="service" id="App\Form\AcceptType"/>
         <argument key="App\Form\EscapadeType" type="service" id="App\Form\EscapadeType"/>
+        <argument key="App\Form\FrontType" type="service" id="App\Form\FrontType"/>
+        <argument key="App\Form\LocationvType" type="service" id="App\Form\LocationvType"/>
+        <argument key="App\Form\PropertySearchType" type="service" id="App\Form\PropertySearchType"/>
         <argument key="App\Form\Reclamation1Type" type="service" id="App\Form\Reclamation1Type"/>
         <argument key="App\Form\ReclamationType" type="service" id="App\Form\ReclamationType"/>
         <argument key="App\Form\RegistrationType" type="service" id="App\Form\RegistrationType"/>
         <argument key="App\Form\ReservationescType" type="service" id="App\Form\ReservationescType"/>
         <argument key="App\Form\ResetPassType" type="service" id="App\Form\ResetPassType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
+        <argument key="App\Form\VoitureType" type="service" id="App\Form\VoitureType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -6098,13 +6392,15 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.QfaCRKM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.PlWvuS8" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\EscapadeRepository" type="service" id="App\Repository\EscapadeRepository"/>
+        <argument key="App\Repository\LocationvRepository" type="service" id="App\Repository\LocationvRepository"/>
         <argument key="App\Repository\ReclamationRepository" type="service" id="App\Repository\ReclamationRepository"/>
         <argument key="App\Repository\ReservationescRepository" type="service" id="App\Repository\ReservationescRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
+        <argument key="App\Repository\VoitureRepository" type="service" id="App\Repository\VoitureRepository"/>
       </argument>
     </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
@@ -6328,9 +6624,21 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.1qxpWX0" method="withContext"/>
     </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\FrontvoitureController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\FrontvoitureController"/>
+      <argument>App\Controller\FrontvoitureController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
     <service id=".service_locator.1qxpWX0.App\Controller\GlobaleController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\GlobaleController"/>
       <argument>App\Controller\GlobaleController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\Panier2Controller" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Panier2Controller"/>
+      <argument>App\Controller\Panier2Controller</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.1qxpWX0" method="withContext"/>
     </service>
@@ -6373,6 +6681,12 @@
     <service id=".service_locator.1qxpWX0.App\Controller\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\UserController"/>
       <argument>App\Controller\UserController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\VoitureController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\VoitureController"/>
+      <argument>App\Controller\VoitureController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.1qxpWX0" method="withContext"/>
     </service>
@@ -6519,12 +6833,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.EiMnm.."/>
+      <argument type="service" id=".service_locator.EVJBVZv"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.EiMnm.."/>
+      <argument type="service" id=".service_locator.EVJBVZv"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -6535,11 +6849,13 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id=".errored..service_locator.v._lgSC.App\Entity\Escapade" class="App\Entity\Escapade"/>
+    <service id=".errored..service_locator.cgH2fF0.App\Entity\Locationv" class="App\Entity\Locationv"/>
     <service id=".errored..service_locator.Ky9OCSE.App\Entity\Reclamation" class="App\Entity\Reclamation"/>
     <service id=".errored..service_locator.HnZsTA7.App\Entity\Reclamation" class="App\Entity\Reclamation"/>
     <service id=".errored..service_locator.1FQI5oC.App\Entity\Reservationesc" class="App\Entity\Reservationesc"/>
     <service id=".errored..service_locator.PCa85Br.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.ch4Jgvl.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.VzwXyoC.App\Entity\Voiture" class="App\Entity\Voiture"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.H2vHzyo"/>
       <argument type="collection">
@@ -6975,9 +7291,10 @@
     <service id="swiftmailer.transport" alias="swiftmailer.mailer.default.transport.spool" public="true"/>
     <service id="Swift_Mailer" alias="swiftmailer.mailer.default"/>
     <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool"/>
+    <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.EiMnm.."/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.EVJBVZv"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

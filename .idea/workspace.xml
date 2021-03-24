@@ -20,11 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa874016-ba6c-4889-884a-bd1143a59a29" name="Default Changelist" comment="Merge branch 'main' of https://github.com/thourayamazlout/pidev-&#10;&#10;# Conflicts:&#10;#&#9;templates/base.html.twig">
-      <change afterPath="$PROJECT_DIR$/src/Form/ResetPassType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/forgotten_password.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/reset_password.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/pidevartefact.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pidevartefact.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -32,12 +27,24 @@
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210318090028.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Escapade.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Escapade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FrontvoitureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FrontvoitureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LocationvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LocationvController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Panier2Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Panier2Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/VoitureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VoitureController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base2.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontvoiture/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontvoiture/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontvoiture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontvoiture/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/locationv/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/locationv/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/locationv/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/locationv/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/locationv/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/locationv/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/locationv/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/locationv/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panier2/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panier2/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/voiture/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voiture/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/voiture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voiture/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/voiture/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voiture/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/voiture/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voiture/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/annotations.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/annotations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xiG7FkdN1P/+/C/aKTWdAZRqIYb+-O0tG2g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xiG7FkdN1P/+/C/aKTWdAZRqIYb+-O0tG2g" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xiG7FkdN1P/+/R/0Oof8ybB2zIl+tEzwhhg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xiG7FkdN1P/+/R/0Oof8ybB2zIl+tEzwhhg" afterDir="false" />
@@ -203,9 +210,9 @@
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerDeprecations.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerDeprecations.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
@@ -339,6 +346,8 @@
       <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p4SnPuBqaNTy2KpAc40NL19gVy" />
@@ -404,6 +413,7 @@
       <workItem from="1616504929399" duration="3754000" />
       <workItem from="1616508852523" duration="595000" />
       <workItem from="1616520069592" duration="7145000" />
+      <workItem from="1616601197041" duration="5205000" />
     </task>
     <task id="LOCAL-00001" summary="auto merging escapde">
       <created>1614502501635</created>

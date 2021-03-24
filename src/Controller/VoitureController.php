@@ -20,7 +20,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 class VoitureController extends AbstractController
 {
     /**
-     * @Route("/", name="voiture_index", methods={"GET"})
+     * @Route("/voitureindex", name="voiture_index", methods={"GET"})
      */
     public function index(VoitureRepository $voitureRepository): Response
     {

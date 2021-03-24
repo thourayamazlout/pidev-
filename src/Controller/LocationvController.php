@@ -18,7 +18,7 @@ use Dompdf\Options;
 class LocationvController extends Controller
 {
     /**
-     * @Route("/", name="locationv_index", methods={"GET"})
+     * @Route("/locationvindex", name="locationv_index", methods={"GET"})
      */
     public function index(LocationvRepository $locationvRepository, Request $request): Response
     {
