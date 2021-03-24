@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerPCM1Dt0/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerTHtdvjS/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -26,6 +26,7 @@ $classes[] = 'Symfony\Bundle\DebugBundle\DebugBundle';
 $classes[] = 'Symfony\Bundle\MakerBundle\MakerBundle';
 $classes[] = 'Symfony\Bundle\WebServerBundle\WebServerBundle';
 $classes[] = 'Vich\UploaderBundle\VichUploaderBundle';
+$classes[] = 'Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle';
 $classes[] = 'Symfony\Component\HttpClient\TraceableHttpClient';
 $classes[] = 'Symfony\Contracts\HttpClient\HttpClientInterface';
 $classes[] = 'Symfony\Component\HttpClient\HttpClient';
@@ -51,10 +52,12 @@ $classes[] = 'App\Form\Reclamation1Type';
 $classes[] = 'App\Form\ReclamationType';
 $classes[] = 'App\Form\RegistrationType';
 $classes[] = 'App\Form\ReservationescType';
+$classes[] = 'App\Form\ResetPassType';
 $classes[] = 'App\Form\UserType';
 $classes[] = 'App\Repository\EscapadeRepository';
 $classes[] = 'App\Repository\ReclamationRepository';
 $classes[] = 'App\Repository\ReservationescRepository';
+$classes[] = 'App\Repository\UserRepository';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Dbal\ManagerRegistryAwareConnectionProvider';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Registry';
 $classes[] = 'Doctrine\DBAL\Tools\Console\Command\RunSqlCommand';
@@ -325,6 +328,7 @@ $classes[] = 'Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector'
 $classes[] = 'Symfony\Bridge\Twig\DataCollector\TwigDataCollector';
 $classes[] = 'Symfony\Component\HttpClient\DataCollector\HttpClientDataCollector';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector';
+$classes[] = 'Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector';
 $classes[] = 'Symfony\Component\Mailer\DataCollector\MessageDataCollector';
 $classes[] = 'Vich\UploaderBundle\DataCollector\MappingCollector';
 $classes[] = 'Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector';
@@ -373,8 +377,8 @@ $classes[] = 'Symfony\Component\Security\Http\Firewall\ChannelListener';
 $classes[] = 'Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint';
 $classes[] = 'Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand';
 $classes[] = 'Symfony\Component\Security\Http\Firewall\ContextListener';
-$classes[] = 'Symfony\Component\Security\Csrf\CsrfTokenManager';
 $classes[] = 'Symfony\Component\Security\Csrf\TokenGenerator\UriSafeTokenGenerator';
+$classes[] = 'Symfony\Component\Security\Csrf\CsrfTokenManager';
 $classes[] = 'Symfony\Component\Security\Csrf\TokenStorage\SessionTokenStorage';
 $classes[] = 'Symfony\Component\Security\Core\Encoder\EncoderFactory';
 $classes[] = 'Symfony\Bundle\SecurityBundle\Security\FirewallMap';
@@ -433,6 +437,17 @@ $classes[] = 'Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStor
 $classes[] = 'Symfony\Component\HttpFoundation\Session\Storage\MetadataBag';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\SessionListener';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\StreamedResponseListener';
+$classes[] = 'Symfony\Bundle\SwiftmailerBundle\Command\DebugCommand';
+$classes[] = 'Symfony\Bundle\SwiftmailerBundle\Command\NewEmailCommand';
+$classes[] = 'Symfony\Bundle\SwiftmailerBundle\Command\SendEmailCommand';
+$classes[] = 'Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener';
+$classes[] = 'Swift_Mailer';
+$classes[] = 'Swift_Plugins_MessageLogger';
+$classes[] = 'Swift_Events_SimpleEventDispatcher';
+$classes[] = 'Swift_Transport';
+$classes[] = 'Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SwiftmailerTransportFactory';
+$classes[] = 'Swift_Transport_SpoolTransport';
+$classes[] = 'Swift_MemorySpool';
 $classes[] = 'Symfony\Component\Translation\Extractor\ChainExtractor';
 $classes[] = 'Symfony\Component\Translation\Extractor\PhpExtractor';
 $classes[] = 'Symfony\Bridge\Twig\Translation\TwigExtractor';

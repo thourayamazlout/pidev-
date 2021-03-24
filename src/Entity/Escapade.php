@@ -178,4 +178,9 @@ class Escapade
 
         return $this;
     }
+
+    public function getIdEsc(): ?int
+    {
+        return $this->id_esc;
+    }
 }

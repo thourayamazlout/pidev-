@@ -24,7 +24,7 @@ class Reclamation
     /**
      * @var string
      *
-     * @ORM\Column(name="textReclamation", type="string", length=255, nullable=false)
+     * @ORM\Column(name="text_reclamation", type="string", length=255, nullable=false)
      */
     private $textreclamation;
 

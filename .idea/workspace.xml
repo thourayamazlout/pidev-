@@ -20,29 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa874016-ba6c-4889-884a-bd1143a59a29" name="Default Changelist" comment="Merge branch 'main' of https://github.com/thourayamazlout/pidev-&#10;&#10;# Conflicts:&#10;#&#9;templates/base.html.twig">
+      <change afterPath="$PROJECT_DIR$/src/Form/ResetPassType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/forgotten_password.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/reset_password.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/pidevartefact.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pidevartefact.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210303194356.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ThourayaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ThourayaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Admin.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaire.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Evenement.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/LocationVoiture.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/MaisonHote.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ReservationEscapade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ReservationMaison.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Sponsor.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Voiture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210318090028.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Escapade.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Escapade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base2.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/thouraya/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/thouraya/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/annotations.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/annotations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xiG7FkdN1P/+/C/aKTWdAZRqIYb+-O0tG2g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xiG7FkdN1P/+/C/aKTWdAZRqIYb+-O0tG2g" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xiG7FkdN1P/+/R/0Oof8ybB2zIl+tEzwhhg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xiG7FkdN1P/+/R/0Oof8ybB2zIl+tEzwhhg" afterDir="false" />
@@ -210,14 +205,12 @@
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/doctrine/migrations/lib/Doctrine/Migrations/Metadata/Storage/TableMetadataStorage.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/doctrine/migrations/lib/Doctrine/Migrations/Metadata/Storage/TableMetadataStorage.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,6 +337,8 @@
       <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
       <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
       <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p4SnPuBqaNTy2KpAc40NL19gVy" />
@@ -404,7 +399,11 @@
       <workItem from="1615537002267" duration="1910000" />
       <workItem from="1615902560994" duration="2469000" />
       <workItem from="1616056073080" duration="4524000" />
-      <workItem from="1616070144223" duration="1361000" />
+      <workItem from="1616070144223" duration="4867000" />
+      <workItem from="1616383292253" duration="127000" />
+      <workItem from="1616504929399" duration="3754000" />
+      <workItem from="1616508852523" duration="595000" />
+      <workItem from="1616520069592" duration="7145000" />
     </task>
     <task id="LOCAL-00001" summary="auto merging escapde">
       <created>1614502501635</created>
@@ -460,10 +459,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="736" y="437" width="447" height="266" key="ComposerInitDialogKey/0.0.1920.1050@0.0.1920.1050" timestamp="1615042971000" />
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1614801107417">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1616507269499">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1614801107417" />
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1616507269499" />
     <state x="184" y="86" key="MergeDialog" timestamp="1614441415296">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

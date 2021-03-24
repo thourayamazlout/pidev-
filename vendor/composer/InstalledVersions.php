@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'c89d7f417f2c2626222b4c85dd841dd29fdd7c96',
+    'reference' => 'b315cca48794c7a692ce9e1182cb725e45e89919',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'c89d7f417f2c2626222b4c85dd841dd29fdd7c96',
+      'reference' => 'b315cca48794c7a692ce9e1182cb725e45e89919',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -452,6 +452,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '430d14c01836b77c28092883d195a43ce413ee32',
+    ),
+    'swiftmailer/swiftmailer' => 
+    array (
+      'pretty_version' => 'v6.2.7',
+      'version' => '6.2.7.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '15f7faf8508e04471f666633addacf54c0ab5933',
     ),
     'symfony/asset' => 
     array (
@@ -1037,6 +1046,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '4e78d7d47061fa183639927ec40d607973699609',
+    ),
+    'symfony/swiftmailer-bundle' => 
+    array (
+      'pretty_version' => 'v3.5.2',
+      'version' => '3.5.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6b72355549f02823a2209180f9c035e46ca3f178',
     ),
     'symfony/translation' => 
     array (
