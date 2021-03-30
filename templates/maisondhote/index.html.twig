@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Maisondhote index{% endblock %}
+
+{% block body %}
+    <h1>Les maisons d'hote</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nommaison</th>
+                <th>Ville</th>
+                <th>Address</th>
+                <th>Nombrechambres</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for maisondhote in maisondhotes %}
+            <tr>
+                <td>{{ maisondhote.id }}</td>
+                <td>{{ maisondhote.Nommaison }}</td>
+                <td>{{ maisondhote.Ville }}</td>
+                <td>{{ maisondhote.Address }}</td>
+                <td>{{ maisondhote.Nombrechambres }}</td>
+                <td>{{ maisondhote.prix }}</td>
+                <td>{{ maisondhote.Description }}</td>
+                <td> <img src="{{ asset('uploads/images/' ~ maisondhote.image) }}" alt="" style="width: 70px;height: 70px"></td>
+                <td>
+                    <a href="{{ path('maisondhote_show', {'id': maisondhote.id}) }}">show</a>
+                    <a href="{{ path('maisondhote_edit', {'id': maisondhote.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('maisondhote_new') }}">Create new</a>
+{% endblock %}

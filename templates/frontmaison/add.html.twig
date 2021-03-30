@@ -1,0 +1,48 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Hello MaisondhoteController!{% endblock %}
+
+{% block body %}
+    <h1 class="mb-30"> Reserver une maison d'hote </h1>
+
+{% set flashbag_notices = app.session.flashbag.get('notice')%}
+{% if flashbag_notices is not empty %}
+    <ul class ="msg">
+    {% for notice in flashbag_notices %}
+    <li>{{ notice }}</li>
+{% endfor %}
+    </ul>
+{% endif %}
+
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+    {{ form_label(form.Nom,"Nom") }}
+    {{ form_widget(form.Nom) }}
+
+    {{ form_label(form.Prenom,"Prenom") }}
+    {{ form_widget(form.Prenom) }}
+
+    {{ form_label(form.Numerodetele,"Numéro de telephone") }}
+    {{ form_widget(form.Numerodetele) }}
+
+
+
+    {{ form_label(form.startat,"Date de debut ") }}
+    {{ form_widget(form.startat) }}
+
+    {{ form_label(form.endat,"Date de fin ") }}
+    {{ form_widget(form.endat) }}
+
+
+    {{ form_label(form.Maisondhote,"Maison d'hote") }} <br/>
+    {{ form_widget(form.Maisondhote) }}
+
+    <br/><br/><br/>
+
+
+
+    <button class="btn">{{ button_label|default('Reserver') }}</button>
+    {{ form_end(form) }}
+
+
+{% endblock %}

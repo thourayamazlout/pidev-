@@ -1,0 +1,113 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Hello MaisondhoteController!{% endblock %}
+
+{% block body %}
+    </br>
+    </br>
+    </br>
+
+    <!-- Room Start -->
+    <span id="t">
+    <span class="room-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <!--font-back-tittle  -->
+                    <div class="font-back-tittle mb-45">
+                        <div class="archivment-front">
+                            <h3>Nos maisons d'hotes</h3>
+                        </div>
+                        <h3 class="archivment-back">Nos maisons d'hotes</h3>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <input type="text" id="searchValue" class="form-control" placeholder="Search">
+            <div id='all' class="row">
+                {% for maisondhote in maisondhotes %}
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <!-- Single Room -->
+                    <div class="single-room mb-50">
+                        <div class="room-img">
+                             <img src="{{ asset('uploads/images/' ~ maisondhote.image) }}" alt="">
+                        </div>
+                        <div class="room-caption">
+                            <h3><a href="rooms.html">{{ maisondhote.Nommaison }}</a></h3>
+                            <p>
+                                <b> ville: </b>{{ maisondhote.Ville }} <br>
+                                <b> nombre de chambre: </b>{{ maisondhote.Nombrechambres }}
+                            </p>
+                            <div class="per-night">
+                                <span><u>dt</u>{{ maisondhote.prix }} <span>/ par nuit</span></span>
+                            </div>
+                            <a href="/add" class="btn mt-4 mx-auto"> Reserver</a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                    <tr>
+                        <td colspan="8">no records found</td>
+                    </tr>
+                {% endfor %}
+            </div>
+        <div id="search" class="row">
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="room-btn pt-70">
+                    <a href="#" class="btn view-btn1">View more  <i class="ti-angle-right"></i> </a>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#searchValue").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte
+                afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est
+                « search » pour faire la recherche */
+
+                6
+
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est
+                    envoyée */
+                    url : "{{ path('searchfrontMaisondhote') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    type : 'GET',
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la
+                    zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le
+                    nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#search').empty();
+                            $.each(JSON.parse(retour), function(i, obj) {
+                                $('#all').hide();
+                                $('#search').append(' <div class="col-xl-4 col-lg-4 col-md-6"> <div class="single-blog mb-40"><div class="blog-img mb-30"> <img src="uploads/images/'+ obj.image+'" alt=""> </div><div><div class="blog-cap-top d-flex justify-content-between mb-3"><a href="/add" class="btn mt-4 mx-auto"> Reserver </a></div><div class="blog-cap-mid" style=" font-size: 1.5%;"><p><b> '+obj.Nommaison +'</b></br> <b> '+ obj.Ville +' </b></br><b> '+ obj.Nombrechambres +' </b> <b>  '+ obj.prix +' dt/jour</b></p></div></div></div></div> ');
+                            });
+                        }
+                        else
+                        {
+                            $('#all').show();
+                            $('#search').empty();
+                            $('#search').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+{% endblock %}
+

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservationmaison index{% endblock %}
+
+{% block body %}
+    <h1>Les reservations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Numerodetele</th>
+                <th>Startat</th>
+                <th>Endat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservationmaison in reservationmaisons %}
+            <tr>
+                <td>{{ reservationmaison.id }}</td>
+                <td>{{ reservationmaison.Nom }}</td>
+                <td>{{ reservationmaison.Prenom }}</td>
+                <td>{{ reservationmaison.Numerodetele }}</td>
+                <td>{{ reservationmaison.startat ? reservationmaison.startat|date('Y-m-d') : '' }}</td>
+                <td>{{ reservationmaison.endat ? reservationmaison.endat|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('reservationmaison_show', {'id': reservationmaison.id}) }}">show</a>
+                    <!--<a href="{{ path('reservationmaison_edit', {'id': reservationmaison.id}) }}">edit</a>-->
+                    <a href="{{ path('maisondhote_editDisponibilite', {'id': reservationmaison.maisondhote.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(reservationmaisons) }}
+    </div>
+    <a href="{{ path('reservationmaison_new') }}">Create new</a>
+    <a href="{{ path('reservationmaison_list') }}">Imprimer</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Maisondhote{% endblock %}
+
+{% block body %}
+    <h1>Creer une Maison d'hote</h1>
+
+    {{ include('maisondhote/_form.html.twig') }}
+
+    <a href="{{ path('maisondhote_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% block body %}
+    <h1>Les reservations</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Numerodetele</th>
+            <th>Startat</th>
+            <th>Endat</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for reservationmaison in reservationmaisons %}
+            <tr>
+                <td>{{ reservationmaison.id }}</td>
+                <td>{{ reservationmaison.Nom }}</td>
+                <td>{{ reservationmaison.Prenom }}</td>
+                <td>{{ reservationmaison.Numerodetele }}</td>
+                <td>{{ reservationmaison.startat ? reservationmaison.startat|date('Y-m-d') : '' }}</td>
+                <td>{{ reservationmaison.endat ? reservationmaison.endat|date('Y-m-d') : '' }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('reservationmaison_new') }}">Create new</a>
+
+{% endblock %}
