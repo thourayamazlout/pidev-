@@ -1,0 +1,68 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Hello EvenementfrontController!{% endblock %}
+{% block body %}
+<h1>les Evenements</h1>
+
+
+
+    <table class="table" id="tableac">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Rechercher">
+    <thead>
+    <tr>
+        <th>NomEvent</th>
+        <th>StartAt</th>
+        <th>EndAt</th>
+        <th>Ville</th>
+        <th>Description</th>
+        <th>image</th>
+        <th>rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for evenement in evenements %}
+        <tr>
+            <td>{{ evenement.nomEvent }}</td>
+            <td>{{ evenement.startAt ? evenement.startAt|date('Y-m-d') : '' }}</td>
+            <td>{{ evenement.endAt ? evenement.endAt|date('Y-m-d') : '' }}</td>
+            <td>{{ evenement.ville }}</td>
+            <td>{{ evenement.description }}</td>
+            <td><img src="{{ asset('uploads/images/' ~ evenement.image   ) }}" alt="" style="height: 420px;width: 220px" ></td>
+            <td>{{ evenement.rating}}/5</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#search').keyup(function(){
+                search_table($(this).val());
+            });
+            function search_table(value){
+                $('#tableac tbody tr').each(function(){
+                    var found = 'false';
+                    $(this).each(function(){
+                        if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                        {
+                            found = 'true';
+                        }
+                    });
+                    if(found == 'true')
+                    {
+                        $(this).show();
+
+                    }
+                    else
+                    {
+                        $(this).hide();
+
+                    }
+                });
+            }
+        });
+    </script>
+
+
+{% endblock %}

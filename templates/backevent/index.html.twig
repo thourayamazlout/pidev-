@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Backevent{% endblock %}
+
+{% block body %}
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">evenement</h4>
+                <p class="card-description">
+                </p>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label for="exampleInputName1">id even</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="id">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3"> nom even</label>
+                        <input type="nom" class="form-control" id="exampleInputEmail3" placeholder="nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">start at</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelectGender">end at</label>
+                        <select class="form-control" id="exampleSelectGender">
+                            <option></option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4> image event </h4>
+
+
+
+                        </span>
+
+                            <form action="upload.php" method="post" enctype="multipart/form-data">
+
+
+                                <input   class="file-upload-browse btn btn-primary"  type="file" name="fileToUpload" id="fileToUpload">
+                                <input type="submit" value="Upload Image" name="submit">
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputCity1">ville</label>
+                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Localisation">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">description</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

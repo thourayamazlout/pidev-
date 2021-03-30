@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evenement index{% endblock %}
+
+{% block body %}
+    <h1>Les Evenements</h1>
+    <a href="{{ path('evenement_new') }}">Create new</a>
+    <script src="{{ asset('./assets/js/jquery.min.js') }}"></script>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdEvent</th>
+                <th>NomEvent</th>
+                <th>StartAt</th>
+                <th>EndAt</th>
+                <th>Ville</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.idEvent }}</td>
+                <td>{{ evenement.nomEvent }}</td>
+                <td>{{ evenement.startAt ? evenement.startAt|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement.endAt ? evenement.endAt|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement.ville }}</td>
+                <td>{{ evenement.description }}</td>
+                <td>
+                    <a href="{{ path('evenement_show', {'idEvent': evenement.idEvent}) }}"><label class="badge badge -success">show</label></a>
+                    <a href="{{ path('evenement_edit', {'idEvent': evenement.idEvent}) }}"><label class="badge badge -success">edit</label></a>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sponsor index{% endblock %}
+
+{% block body %}
+    <h1>Sponsor index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>RefSponsor</th>
+                <th>Cin</th>
+                <th>Budget</th>
+                <th>Message</th>
+                <th>IdUser</th>
+                <th>IdEvent</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sponsor in sponsors %}
+            <tr>
+                <td>{{ sponsor.refSponsor }}</td>
+                <td>{{ sponsor.cin }}</td>
+                <td>{{ sponsor.budget }}</td>
+                <td>{{ sponsor.message }}</td>
+                <td>{{ sponsor.idUser }}</td>
+                <td>{{ sponsor.nomEvent }}</td>
+                <td>
+                    <a href="{{ path('sponsor_show', {'refSponsor': sponsor.refSponsor}) }}">show</a>
+                    <a href="{{ path('sponsor_edit', {'refSponsor': sponsor.refSponsor}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
