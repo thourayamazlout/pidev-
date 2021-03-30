@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerXISCPTQ/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerKeAapsP/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -37,8 +37,11 @@ $classes[] = 'Symfony\Bundle\FrameworkBundle\EventListener\ResolveControllerName
 $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\AdminController';
+$classes[] = 'App\Controller\BackeventController';
 $classes[] = 'App\Controller\DashController';
 $classes[] = 'App\Controller\EscapadeController';
+$classes[] = 'App\Controller\EvenementController';
+$classes[] = 'App\Controller\EvenementfrontController';
 $classes[] = 'App\Controller\EvenetController';
 $classes[] = 'App\Controller\FrontvoitureController';
 $classes[] = 'App\Controller\GlobaleController';
@@ -49,11 +52,13 @@ $classes[] = 'App\Controller\ReclamationController';
 $classes[] = 'App\Controller\ReclamationfrontController';
 $classes[] = 'App\Controller\ReservationescController';
 $classes[] = 'App\Controller\SecurityController';
+$classes[] = 'App\Controller\SponsorController';
 $classes[] = 'App\Controller\ThourayaController';
 $classes[] = 'App\Controller\UserController';
 $classes[] = 'App\Controller\VoitureController';
 $classes[] = 'App\Form\AcceptType';
 $classes[] = 'App\Form\EscapadeType';
+$classes[] = 'App\Form\EvenementType';
 $classes[] = 'App\Form\EventListener\ReCaptchaValidationListener';
 $classes[] = 'App\Form\FrontType';
 $classes[] = 'App\Form\LocationvType';
@@ -64,6 +69,7 @@ $classes[] = 'App\Form\ReclamationType';
 $classes[] = 'App\Form\RegistrationType';
 $classes[] = 'App\Form\ReservationescType';
 $classes[] = 'App\Form\ResetPassType';
+$classes[] = 'App\Form\SponsorType';
 $classes[] = 'App\Form\UserType';
 $classes[] = 'App\Form\VoitureType';
 $classes[] = 'App\Repository\EscapadeRepository';

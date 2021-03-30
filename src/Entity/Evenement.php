@@ -160,6 +160,9 @@ class Evenement
     {
         $this->rating = $rating;
     }
+    public function __toString() {
+        return $this->nomEvent;
+    }
 
 
 

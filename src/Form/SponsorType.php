@@ -18,11 +18,7 @@ class SponsorType extends AbstractType
             ->add('budget')
             ->add('message')
             ->add('idUser')
-            ->add('nomEvent',EntityType::class,
-                array('class'=>Evenement::class,
-                    'choice_label'=>'nomEvent',
-                    'disabled'   => false
-                ) )
+            ->add('nomEvent',EntityType::class,['class'=>Evenement::class,'choice_label'=>'nomEvent'])
         ;
     }
 

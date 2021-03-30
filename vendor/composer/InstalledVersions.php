@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'd9d1fd0cfa958e36dbb506539f2d855f382073eb',
+    'reference' => '11cca18f94b007d163e9b501847749e97c5ca098',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'd9d1fd0cfa958e36dbb506539f2d855f382073eb',
+      'reference' => '11cca18f94b007d163e9b501847749e97c5ca098',
+    ),
+    'blackknight467/star-rating-bundle' => 
+    array (
+      'pretty_version' => 'v2.0.1',
+      'version' => '2.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5a95fe9cef75f8b3e3e763dc92b020091103d5b1',
     ),
     'composer/package-versions-deprecated' => 
     array (

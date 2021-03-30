@@ -19,7 +19,7 @@ class EvenementType extends AbstractType
             ->add('endAt')
             ->add('ville')
             ->add('description')
-            ->add('image',FileType::class)
+            ->add('image',FileType::class,array('data_class' => null))
             ->add('rating',RatingType::class,[
                 'stars' => 5,
             ])

@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SponsorController extends AbstractController
 {
     /**
-     * @Route("/", name="sponsor_index", methods={"GET"})
+     * @Route("/sponsor", name="sponsor_index", methods={"GET"})
      */
     public function index(): Response
     {

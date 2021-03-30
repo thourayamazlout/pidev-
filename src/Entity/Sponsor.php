@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Object_;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -57,7 +58,7 @@ class Sponsor
     private $idUser;
 
     /**
-     * @var int
+     * @var string
      *
      * @ORM\Column(name="nom_event", type="string",length=255, nullable=false)
      * @ORM\ManyToOne(targetEntity=sponsor::class, inversedBy="evenement")
@@ -117,16 +118,19 @@ class Sponsor
         return $this;
     }
 
-    public function getnomEvent(): ?string
+    public function getNomEvent()
     {
         return $this->nomEvent;
     }
 
-    public function setnomEvent(string $nomEvent): self
+    public function setNomEvent(string $nomEvent): self
     {
         $this->nomEvent = $nomEvent;
 
         return $this;
+    }
+    public function __toString() {
+        return $this->nomEvent;
     }
 
 

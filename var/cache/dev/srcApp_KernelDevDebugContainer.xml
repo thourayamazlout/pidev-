@@ -391,6 +391,13 @@
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\AdminController"/>
       </call>
     </service>
+    <service id="App\Controller\BackeventController" class="App\Controller\BackeventController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\BackeventController"/>
+      </call>
+    </service>
     <service id="App\Controller\DashController" class="App\Controller\DashController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -403,6 +410,20 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\EscapadeController"/>
+      </call>
+    </service>
+    <service id="App\Controller\EvenementController" class="App\Controller\EvenementController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\EvenementController"/>
+      </call>
+    </service>
+    <service id="App\Controller\EvenementfrontController" class="App\Controller\EvenementfrontController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\EvenementfrontController"/>
       </call>
     </service>
     <service id="App\Controller\EvenetController" class="App\Controller\EvenetController" public="true" autowire="true" autoconfigure="true">
@@ -471,6 +492,13 @@
         <argument type="service" id=".service_locator.1qxpWX0.App\Controller\SecurityController"/>
       </call>
     </service>
+    <service id="App\Controller\SponsorController" class="App\Controller\SponsorController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.1qxpWX0.App\Controller\SponsorController"/>
+      </call>
+    </service>
     <service id="App\Controller\ThourayaController" class="App\Controller\ThourayaController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -496,6 +524,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\EvenementType" class="App\Form\EvenementType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\EventListener\ReCaptchaValidationListener" class="App\Form\EventListener\ReCaptchaValidationListener" autowire="true" autoconfigure="true">
@@ -528,6 +559,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ResetPassType" class="App\Form\ResetPassType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SponsorType" class="App\Form\SponsorType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
@@ -982,6 +1016,7 @@
       <argument type="collection">
         <argument>App\Form\AcceptType</argument>
         <argument>App\Form\EscapadeType</argument>
+        <argument>App\Form\EvenementType</argument>
         <argument>App\Form\FrontType</argument>
         <argument>App\Form\LocationvType</argument>
         <argument>App\Form\PropertySearchType</argument>
@@ -991,6 +1026,7 @@
         <argument>App\Form\RegistrationType</argument>
         <argument>App\Form\ReservationescType</argument>
         <argument>App\Form\ResetPassType</argument>
+        <argument>App\Form\SponsorType</argument>
         <argument>App\Form\UserType</argument>
         <argument>App\Form\VoitureType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -1329,7 +1365,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator..iV9htH"/>
+      <argument type="service" id=".service_locator.sZxGe2o"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5737,12 +5773,21 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BackeventController" class="App\Controller\BackeventController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BackeventController" class="App\Controller\BackeventController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\BackeventController" class="App\Controller\BackeventController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DashController" class="App\Controller\DashController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DashController" class="App\Controller\DashController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DashController" class="App\Controller\DashController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EscapadeController" class="App\Controller\EscapadeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EscapadeController" class="App\Controller\EscapadeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\EscapadeController" class="App\Controller\EscapadeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EvenementController" class="App\Controller\EvenementController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EvenementController" class="App\Controller\EvenementController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\EvenementController" class="App\Controller\EvenementController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EvenementfrontController" class="App\Controller\EvenementfrontController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EvenementfrontController" class="App\Controller\EvenementfrontController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\EvenementfrontController" class="App\Controller\EvenementfrontController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EvenetController" class="App\Controller\EvenetController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EvenetController" class="App\Controller\EvenetController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\EvenetController" class="App\Controller\EvenetController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5772,6 +5817,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SponsorController" class="App\Controller\SponsorController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SponsorController" class="App\Controller\SponsorController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SponsorController" class="App\Controller\SponsorController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ThourayaController" class="App\Controller\ThourayaController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ThourayaController" class="App\Controller\ThourayaController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ThourayaController" class="App\Controller\ThourayaController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5785,6 +5833,8 @@
     <service id=".abstract.instanceof.App\Form\AcceptType" class="App\Form\AcceptType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EvenementType" class="App\Form\EvenementType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\EvenementType" class="App\Form\EvenementType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\Form\EventListener\ReCaptchaValidationListener" class="App\Form\EventListener\ReCaptchaValidationListener" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\EventListener\ReCaptchaValidationListener" class="App\Form\EventListener\ReCaptchaValidationListener" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\FrontType" class="App\Form\FrontType" autowire="true" abstract="true"/>
@@ -5805,6 +5855,8 @@
     <service id=".abstract.instanceof.App\Form\ReservationescType" class="App\Form\ReservationescType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResetPassType" class="App\Form\ResetPassType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ResetPassType" class="App\Form\ResetPassType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SponsorType" class="App\Form\SponsorType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SponsorType" class="App\Form\SponsorType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\VoitureType" class="App\Form\VoitureType" autowire="true" abstract="true"/>
@@ -6120,6 +6172,12 @@
         <argument key="repository" type="service" id="App\Repository\EscapadeRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.m32XZm7" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="evenement" type="service" id=".errored..service_locator.m32XZm7.App\Entity\Evenement"/>
+      </argument>
+    </service>
     <service id=".service_locator.Cf7H.rj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6227,6 +6285,12 @@
         <argument key="passwordEncoder" type="service" id="security.user_password_encoder.generic"/>
       </argument>
     </service>
+    <service id=".service_locator.MkE07ww" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="sponsor" type="service" id=".errored..service_locator.MkE07ww.App\Entity\Sponsor"/>
+      </argument>
+    </service>
     <service id=".service_locator.rD.UmJG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6239,7 +6303,7 @@
         <argument key="voiture" type="service" id=".errored..service_locator.VzwXyoC.App\Entity\Voiture"/>
       </argument>
     </service>
-    <service id=".service_locator.BcDpqrO" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.tD3U.Hc" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\EscapadeController::delete" type="service" id=".service_locator.v._lgSC"/>
@@ -6247,6 +6311,9 @@
         <argument key="App\Controller\EscapadeController::index" type="service" id=".service_locator.x8CHoOb"/>
         <argument key="App\Controller\EscapadeController::recherche" type="service" id=".service_locator.RyG8oou"/>
         <argument key="App\Controller\EscapadeController::show" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\EvenementController::delete" type="service" id=".service_locator.m32XZm7"/>
+        <argument key="App\Controller\EvenementController::edit" type="service" id=".service_locator.m32XZm7"/>
+        <argument key="App\Controller\EvenementController::show" type="service" id=".service_locator.m32XZm7"/>
         <argument key="App\Controller\FrontvoitureController::index" type="service" id=".service_locator.Cf7H.rj"/>
         <argument key="App\Controller\FrontvoitureController::searchVoiture" type="service" id=".service_locator.uPKkxqj"/>
         <argument key="App\Controller\LocationvController::delete" type="service" id=".service_locator.cgH2fF0"/>
@@ -6276,6 +6343,10 @@
         <argument key="App\Controller\SecurityController::oubliPass" type="service" id=".service_locator.ktjl8ga"/>
         <argument key="App\Controller\SecurityController::resetPassword" type="service" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController::show" type="service" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\SponsorController::delete" type="service" id=".service_locator.MkE07ww"/>
+        <argument key="App\Controller\SponsorController::edit" type="service" id=".service_locator.MkE07ww"/>
+        <argument key="App\Controller\SponsorController::modifier" type="service" id=".service_locator.MkE07ww"/>
+        <argument key="App\Controller\SponsorController::show" type="service" id=".service_locator.MkE07ww"/>
         <argument key="App\Controller\ThourayaController::index" type="service" id=".service_locator.x8CHoOb"/>
         <argument key="App\Controller\ThourayaController::searchEscapade" type="service" id=".service_locator.uPKkxqj"/>
         <argument key="App\Controller\UserController::delete" type="service" id=".service_locator.ch4Jgvl"/>
@@ -6293,6 +6364,9 @@
         <argument key="App\Controller\EscapadeController:index" type="service" id=".service_locator.x8CHoOb"/>
         <argument key="App\Controller\EscapadeController:recherche" type="service" id=".service_locator.RyG8oou"/>
         <argument key="App\Controller\EscapadeController:show" type="service" id=".service_locator.v._lgSC"/>
+        <argument key="App\Controller\EvenementController:delete" type="service" id=".service_locator.m32XZm7"/>
+        <argument key="App\Controller\EvenementController:edit" type="service" id=".service_locator.m32XZm7"/>
+        <argument key="App\Controller\EvenementController:show" type="service" id=".service_locator.m32XZm7"/>
         <argument key="App\Controller\FrontvoitureController:index" type="service" id=".service_locator.Cf7H.rj"/>
         <argument key="App\Controller\FrontvoitureController:searchVoiture" type="service" id=".service_locator.uPKkxqj"/>
         <argument key="App\Controller\LocationvController:delete" type="service" id=".service_locator.cgH2fF0"/>
@@ -6322,6 +6396,10 @@
         <argument key="App\Controller\SecurityController:oubliPass" type="service" id=".service_locator.ktjl8ga"/>
         <argument key="App\Controller\SecurityController:resetPassword" type="service" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController:show" type="service" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\SponsorController:delete" type="service" id=".service_locator.MkE07ww"/>
+        <argument key="App\Controller\SponsorController:edit" type="service" id=".service_locator.MkE07ww"/>
+        <argument key="App\Controller\SponsorController:modifier" type="service" id=".service_locator.MkE07ww"/>
+        <argument key="App\Controller\SponsorController:show" type="service" id=".service_locator.MkE07ww"/>
         <argument key="App\Controller\ThourayaController:index" type="service" id=".service_locator.x8CHoOb"/>
         <argument key="App\Controller\ThourayaController:searchEscapade" type="service" id=".service_locator.uPKkxqj"/>
         <argument key="App\Controller\UserController:delete" type="service" id=".service_locator.ch4Jgvl"/>
@@ -6395,11 +6473,12 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator..iV9htH" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.sZxGe2o" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AcceptType" type="service" id="App\Form\AcceptType"/>
         <argument key="App\Form\EscapadeType" type="service" id="App\Form\EscapadeType"/>
+        <argument key="App\Form\EvenementType" type="service" id="App\Form\EvenementType"/>
         <argument key="App\Form\FrontType" type="service" id="App\Form\FrontType"/>
         <argument key="App\Form\LocationvType" type="service" id="App\Form\LocationvType"/>
         <argument key="App\Form\PropertySearchType" type="service" id="App\Form\PropertySearchType"/>
@@ -6409,6 +6488,7 @@
         <argument key="App\Form\RegistrationType" type="service" id="App\Form\RegistrationType"/>
         <argument key="App\Form\ReservationescType" type="service" id="App\Form\ReservationescType"/>
         <argument key="App\Form\ResetPassType" type="service" id="App\Form\ResetPassType"/>
+        <argument key="App\Form\SponsorType" type="service" id="App\Form\SponsorType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="App\Form\VoitureType" type="service" id="App\Form\VoitureType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
@@ -6644,6 +6724,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.1qxpWX0" method="withContext"/>
     </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\BackeventController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\BackeventController"/>
+      <argument>App\Controller\BackeventController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
     <service id=".service_locator.1qxpWX0.App\Controller\DashController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\DashController"/>
       <argument>App\Controller\DashController</argument>
@@ -6653,6 +6739,18 @@
     <service id=".service_locator.1qxpWX0.App\Controller\EscapadeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\EscapadeController"/>
       <argument>App\Controller\EscapadeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\EvenementController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\EvenementController"/>
+      <argument>App\Controller\EvenementController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\EvenementfrontController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\EvenementfrontController"/>
+      <argument>App\Controller\EvenementfrontController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.1qxpWX0" method="withContext"/>
     </service>
@@ -6707,6 +6805,12 @@
     <service id=".service_locator.1qxpWX0.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.1qxpWX0" method="withContext"/>
+    </service>
+    <service id=".service_locator.1qxpWX0.App\Controller\SponsorController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\SponsorController"/>
+      <argument>App\Controller\SponsorController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.1qxpWX0" method="withContext"/>
     </service>
@@ -6871,12 +6975,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.BcDpqrO"/>
+      <argument type="service" id=".service_locator.tD3U.Hc"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.BcDpqrO"/>
+      <argument type="service" id=".service_locator.tD3U.Hc"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -6887,12 +6991,14 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id=".errored..service_locator.v._lgSC.App\Entity\Escapade" class="App\Entity\Escapade"/>
+    <service id=".errored..service_locator.m32XZm7.App\Entity\Evenement" class="App\Entity\Evenement"/>
     <service id=".errored..service_locator.cgH2fF0.App\Entity\Locationv" class="App\Entity\Locationv"/>
     <service id=".errored..service_locator.Ky9OCSE.App\Entity\Reclamation" class="App\Entity\Reclamation"/>
     <service id=".errored..service_locator.HnZsTA7.App\Entity\Reclamation" class="App\Entity\Reclamation"/>
     <service id=".errored..service_locator.1FQI5oC.App\Entity\Reservationesc" class="App\Entity\Reservationesc"/>
     <service id=".errored..service_locator.PCa85Br.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.ch4Jgvl.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.MkE07ww.App\Entity\Sponsor" class="App\Entity\Sponsor"/>
     <service id=".errored..service_locator.VzwXyoC.App\Entity\Voiture" class="App\Entity\Voiture"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.H2vHzyo"/>
@@ -7332,7 +7438,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.BcDpqrO"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.tD3U.Hc"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

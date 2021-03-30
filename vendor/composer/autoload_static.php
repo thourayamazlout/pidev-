@@ -626,6 +626,13 @@ class ComposerStaticInite58ebd248f9eca29316b3150f9e26b99
     );
 
     public static $prefixesPsr0 = array (
+        'b' => 
+        array (
+            'blackknight467\\StarRatingBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/blackknight467/star-rating-bundle',
+            ),
+        ),
         'S' => 
         array (
             'Sabberworm\\CSS' => 
