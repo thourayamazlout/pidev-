@@ -115,6 +115,10 @@ class ComposerStaticInite58ebd248f9eca29316b3150f9e26b99
             'Svg\\' => 4,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
         ),
+        'R' => 
+        array (
+            'ReCaptcha\\' => 10,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -480,6 +484,10 @@ class ComposerStaticInite58ebd248f9eca29316b3150f9e26b99
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
+        ),
+        'ReCaptcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha',
         ),
         'Psr\\Log\\' => 
         array (

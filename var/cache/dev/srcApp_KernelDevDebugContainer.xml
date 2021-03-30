@@ -243,6 +243,7 @@
       <parameter>@VichUploader/Form/fields.html.twig</parameter>
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>bootstrap_4_layout.html.twig</parameter>
+      <parameter>form/custom_types.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">E:\xampp\php\pidevartefact/templates</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
@@ -380,6 +381,9 @@
     <service id="kernel" class="App\Kernel" public="true" synthetic="true">
       <tag name="routing.route_loader"/>
     </service>
+    <service id="ReCaptcha\ReCaptcha" class="ReCaptcha\ReCaptcha" autowire="true" autoconfigure="true">
+      <argument>6Ld6tJIaAAAAAENFIjpHOHpNEk47vjK615A8pf5i</argument>
+    </service>
     <service id="App\Controller\AdminController" class="App\Controller\AdminController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -494,6 +498,10 @@
     <service id="App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\EventListener\ReCaptchaValidationListener" class="App\Form\EventListener\ReCaptchaValidationListener" autowire="true" autoconfigure="true">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="ReCaptcha\ReCaptcha"/>
+    </service>
     <service id="App\Form\FrontType" class="App\Form\FrontType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -502,6 +510,10 @@
     </service>
     <service id="App\Form\PropertySearchType" class="App\Form\PropertySearchType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ReCaptchaType" class="App\Form\ReCaptchaType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="ReCaptcha\ReCaptcha"/>
     </service>
     <service id="App\Form\Reclamation1Type" class="App\Form\Reclamation1Type" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
@@ -973,6 +985,7 @@
         <argument>App\Form\FrontType</argument>
         <argument>App\Form\LocationvType</argument>
         <argument>App\Form\PropertySearchType</argument>
+        <argument>App\Form\ReCaptchaType</argument>
         <argument>App\Form\Reclamation1Type</argument>
         <argument>App\Form\ReclamationType</argument>
         <argument>App\Form\RegistrationType</argument>
@@ -1316,7 +1329,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.8niB2yB"/>
+      <argument type="service" id=".service_locator..iV9htH"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -2454,6 +2467,14 @@
         <argument type="collection">
           <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
           <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>form.post_submit</argument>
+        <argument type="collection">
+          <argument type="service" id="App\Form\EventListener\ReCaptchaValidationListener"/>
+          <argument>onPostSubmit</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -4679,6 +4700,10 @@
       <call method="addRuntimeLoader">
         <argument type="service" id="twig.runtime_loader"/>
       </call>
+      <call method="addGlobal">
+        <argument>gg_recaptcha_site_key</argument>
+        <argument>6LcZy5MaAAAAALx7yt7mI4WfyR6ba0AAqeUrglU7</argument>
+      </call>
       <call method="registerUndefinedFilterCallback">
         <argument type="collection">
           <argument type="service" id="twig.missing_extension_suggestor"/>
@@ -5760,12 +5785,16 @@
     <service id=".abstract.instanceof.App\Form\AcceptType" class="App\Form\AcceptType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\EscapadeType" class="App\Form\EscapadeType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\Form\EventListener\ReCaptchaValidationListener" class="App\Form\EventListener\ReCaptchaValidationListener" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\EventListener\ReCaptchaValidationListener" class="App\Form\EventListener\ReCaptchaValidationListener" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\FrontType" class="App\Form\FrontType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\FrontType" class="App\Form\FrontType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\LocationvType" class="App\Form\LocationvType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\LocationvType" class="App\Form\LocationvType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PropertySearchType" class="App\Form\PropertySearchType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\PropertySearchType" class="App\Form\PropertySearchType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReCaptchaType" class="App\Form\ReCaptchaType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ReCaptchaType" class="App\Form\ReCaptchaType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\Reclamation1Type" class="App\Form\Reclamation1Type" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\Reclamation1Type" class="App\Form\Reclamation1Type" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" abstract="true"/>
@@ -6192,6 +6221,12 @@
         <argument key="users" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.pwZ6MTM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="passwordEncoder" type="service" id="security.user_password_encoder.generic"/>
+      </argument>
+    </service>
     <service id=".service_locator.rD.UmJG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6204,7 +6239,7 @@
         <argument key="voiture" type="service" id=".errored..service_locator.VzwXyoC.App\Entity\Voiture"/>
       </argument>
     </service>
-    <service id=".service_locator.EVJBVZv" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.BcDpqrO" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\EscapadeController::delete" type="service" id=".service_locator.v._lgSC"/>
@@ -6239,6 +6274,7 @@
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.fd.UL7I"/>
         <argument key="App\Controller\SecurityController::new" type="service" id=".service_locator.gPh6X_L"/>
         <argument key="App\Controller\SecurityController::oubliPass" type="service" id=".service_locator.ktjl8ga"/>
+        <argument key="App\Controller\SecurityController::resetPassword" type="service" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController::show" type="service" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\ThourayaController::index" type="service" id=".service_locator.x8CHoOb"/>
         <argument key="App\Controller\ThourayaController::searchEscapade" type="service" id=".service_locator.uPKkxqj"/>
@@ -6284,6 +6320,7 @@
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.fd.UL7I"/>
         <argument key="App\Controller\SecurityController:new" type="service" id=".service_locator.gPh6X_L"/>
         <argument key="App\Controller\SecurityController:oubliPass" type="service" id=".service_locator.ktjl8ga"/>
+        <argument key="App\Controller\SecurityController:resetPassword" type="service" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController:show" type="service" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\ThourayaController:index" type="service" id=".service_locator.x8CHoOb"/>
         <argument key="App\Controller\ThourayaController:searchEscapade" type="service" id=".service_locator.uPKkxqj"/>
@@ -6358,7 +6395,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.8niB2yB" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator..iV9htH" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AcceptType" type="service" id="App\Form\AcceptType"/>
@@ -6366,6 +6403,7 @@
         <argument key="App\Form\FrontType" type="service" id="App\Form\FrontType"/>
         <argument key="App\Form\LocationvType" type="service" id="App\Form\LocationvType"/>
         <argument key="App\Form\PropertySearchType" type="service" id="App\Form\PropertySearchType"/>
+        <argument key="App\Form\ReCaptchaType" type="service" id="App\Form\ReCaptchaType"/>
         <argument key="App\Form\Reclamation1Type" type="service" id="App\Form\Reclamation1Type"/>
         <argument key="App\Form\ReclamationType" type="service" id="App\Form\ReclamationType"/>
         <argument key="App\Form\RegistrationType" type="service" id="App\Form\RegistrationType"/>
@@ -6833,12 +6871,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.EVJBVZv"/>
+      <argument type="service" id=".service_locator.BcDpqrO"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.EVJBVZv"/>
+      <argument type="service" id=".service_locator.BcDpqrO"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7294,7 +7332,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.EVJBVZv"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.BcDpqrO"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

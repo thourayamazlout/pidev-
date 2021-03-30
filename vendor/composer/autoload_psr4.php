@@ -82,6 +82,7 @@ return array(
     'Symfony\\Bridge\\Doctrine\\' => array($vendorDir . '/symfony/doctrine-bridge'),
     'Svg\\' => array($vendorDir . '/phenx/php-svg-lib/src/Svg'),
     'Sensio\\Bundle\\FrameworkExtraBundle\\' => array($vendorDir . '/sensio/framework-extra-bundle/src'),
+    'ReCaptcha\\' => array($vendorDir . '/google/recaptcha/src/ReCaptcha'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Link\\' => array($vendorDir . '/psr/link/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),

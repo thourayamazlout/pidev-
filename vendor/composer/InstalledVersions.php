@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'dd8d98d461034c8025c9dd956b3c0c2681f5df86',
+    'reference' => 'd9d1fd0cfa958e36dbb506539f2d855f382073eb',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'dd8d98d461034c8025c9dd956b3c0c2681f5df86',
+      'reference' => 'd9d1fd0cfa958e36dbb506539f2d855f382073eb',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -214,6 +214,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '121af47c9aee9c03031bdeca3fac0540f59aa5c3',
+    ),
+    'google/recaptcha' => 
+    array (
+      'pretty_version' => '1.2.4',
+      'version' => '1.2.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '614f25a9038be4f3f2da7cbfd778dc5b357d2419',
     ),
     'jms/metadata' => 
     array (

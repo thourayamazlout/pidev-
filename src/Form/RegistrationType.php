@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,6 +22,9 @@ class RegistrationType extends AbstractType
             ->add('password',PasswordType::class)
             ->add('confirmpassword',PasswordType::class)
             ->add('image',FileType::class)
+            ->add('captcha', ReCaptchaType::class, [
+                'type' => 'invisible' // (invisible, checkbox)
+            ]);
 
         ;
     }

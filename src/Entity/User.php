@@ -108,6 +108,9 @@ class User implements UserInterface
     private $reset_token;
 
 
+    private $captcha;
+
+
 
 
     private $roles=array();
@@ -117,6 +120,9 @@ class User implements UserInterface
     public function __construct()
     {
         $this->reclamations = new ArrayCollection();
+    }
+    public function getCaptcha(){
+        return $this->captcha;
     }
 
     public function getIdUser(): ?int

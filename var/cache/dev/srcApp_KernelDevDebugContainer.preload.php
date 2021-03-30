@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerEDbVvml/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerXISCPTQ/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -54,9 +54,11 @@ $classes[] = 'App\Controller\UserController';
 $classes[] = 'App\Controller\VoitureController';
 $classes[] = 'App\Form\AcceptType';
 $classes[] = 'App\Form\EscapadeType';
+$classes[] = 'App\Form\EventListener\ReCaptchaValidationListener';
 $classes[] = 'App\Form\FrontType';
 $classes[] = 'App\Form\LocationvType';
 $classes[] = 'App\Form\PropertySearchType';
+$classes[] = 'App\Form\ReCaptchaType';
 $classes[] = 'App\Form\Reclamation1Type';
 $classes[] = 'App\Form\ReclamationType';
 $classes[] = 'App\Form\RegistrationType';
@@ -73,6 +75,7 @@ $classes[] = 'App\Repository\VoitureRepository';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Dbal\ManagerRegistryAwareConnectionProvider';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Registry';
 $classes[] = 'Doctrine\DBAL\Tools\Console\Command\RunSqlCommand';
+$classes[] = 'ReCaptcha\ReCaptcha';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController';
 $classes[] = 'Vich\UploaderBundle\Metadata\CacheWarmer';
