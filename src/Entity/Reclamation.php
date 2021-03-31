@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Reclamation
  *
- * @ORM\Table(name="reclamation")
+ * @ORM\Table(name="reclamation", indexes={@ORM\Index(name="fn_entreprise", columns={"iduser"})})
  * @ORM\Entity
  */
 class Reclamation
@@ -29,10 +29,15 @@ class Reclamation
     private $textreclamation;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="iduser", referencedColumnName="id_user")
+     * })
      */
-    private $idUser;
+    private $iduser;
+
 
 
 
@@ -53,17 +58,19 @@ class Reclamation
         return $this;
     }
 
-    public function getIdUser(): ?int
+    public function getIduser(): ?User
     {
-        return $this->idUser;
+        return $this->iduser;
     }
 
-    public function setIdUser(int $idUser): self
+    public function setIduser(?User $iduser): self
     {
-        $this->idUser = $idUser;
-
+        $this->iduser = $iduser;
         return $this;
     }
+
+
+
 
 
 }

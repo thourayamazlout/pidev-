@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Form;
-
+use App\Entity\User;
 use App\Entity\Reclamation;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,7 +15,10 @@ class ReclamationType extends AbstractType
     {
         $builder
             ->add('textreclamation',TextareaType::class)
-            ->add('idUser')
+            ->add('idUser',EntityType::class,[
+                'class'=> User::class,
+                'choice_label'=> 'nom'
+            ])
         ;
     }
 

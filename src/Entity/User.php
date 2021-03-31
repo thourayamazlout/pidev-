@@ -115,6 +115,11 @@ class User implements UserInterface
 
     private $roles=array();
 
+    /**
+     * @ORM\OneToMany(targetEntity=Reclamation::class, mappedBy="iduser")
+     */
+    private $reclamations;
+
 
 
     public function __construct()
@@ -266,6 +271,36 @@ class User implements UserInterface
     public function setResetToken(?string $reset_token): self
     {
         $this->reset_token = $reset_token;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reclamation[]
+     */
+    public function getReclamations(): Collection
+    {
+        return $this->reclamations;
+    }
+
+    public function addReclamation(Reclamation $reclamation): self
+    {
+        if (!$this->reclamations->contains($reclamation)) {
+            $this->reclamations[] = $reclamation;
+            $reclamation->setIduser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReclamation(Reclamation $reclamation): self
+    {
+        if ($this->reclamations->removeElement($reclamation)) {
+            // set the owning side to null (unless already changed)
+            if ($reclamation->getIduser() === $this) {
+                $reclamation->setIduser(null);
+            }
+        }
 
         return $this;
     }
