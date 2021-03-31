@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Reclamation;
 use App\Form\Reclamation1Type;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -94,4 +95,42 @@ class ReclamationController extends AbstractController
 
         return $this->redirectToRoute('reclamation_index');
     }
+    /**
+     *  @Route("/admin/stat", name="reclamation_stat", methods={"GET"})
+     */
+    public function stat()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $conn = $em->getConnection();
+        $sqlAdmin2 = 'SELECT nom,COUNT(*) AS toBeUsed FROM reclamation,User WHERE User.id = reclamation.idUser GROUP BY nom';
+        $sqlNbUsers = 'SELECT COUNT(*) AS nbUsers FROM User';
+        $stmtAdmin2 = $conn->prepare($sqlAdmin2);
+        $stmtnbuser = $conn->prepare($sqlNbUsers);
+        $stmtnbuser->execute();
+        $stmtAdmin2->execute();
+        $arrayAdmin2 = $stmtAdmin2->fetchAll();
+        $nb_users=$stmtAdmin2->fetchAll();
+        //NUMBER OF USERS
+        $nbUsers = 0;
+        foreach ($nb_users as $nb){
+            $nbUsers += intval($nb['nbUsers']);
+        }
+
+        $data2 = array(['user','Nombre de Reclamations']);
+        foreach ($arrayAdmin2 as $item){
+            array_push($data2,[$item['nom'],intval($item['toBeUsed'])]);
+
+        }
+        $pieChart = new PieChart();
+        $pieChart->getData()->setArrayToDataTable($data2);
+        $pieChart->getOptions()->setTitle('Pourcentages des reclamations pour chaque utilisateurs');
+        $pieChart->getOptions()->setWidth(600);
+        $pieChart->getOptions()->setHeight(400);
+        return $this->render('reclamation/stat.html.twig',[
+            "piechart"=>$pieChart,
+            "nbUsers"=>$nb_users
+        ]);
+    }
+
+
 }

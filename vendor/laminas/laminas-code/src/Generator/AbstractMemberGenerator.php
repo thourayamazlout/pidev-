@@ -25,14 +25,17 @@ abstract class AbstractMemberGenerator extends AbstractGenerator
     public const VISIBILITY_PROTECTED = 'protected';
     public const VISIBILITY_PRIVATE   = 'private';
 
-    protected ?DocBlockGenerator $docBlock = null;
+    /** @var DocBlockGenerator|null */
+    protected $docBlock;
 
-    protected string $name = '';
+    /** @var string */
+    protected $name;
 
-    protected int $flags = self::FLAG_PUBLIC;
+    /** @var int */
+    protected $flags = self::FLAG_PUBLIC;
 
     /**
-     * @param  int|int[] $flags
+     * @param  int|array $flags
      * @return AbstractMemberGenerator
      */
     public function setFlags($flags)

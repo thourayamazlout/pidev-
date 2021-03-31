@@ -24,15 +24,14 @@ abstract class AbstractGenerator implements GeneratorInterface
      */
     public const LINE_FEED = "\n";
 
-    protected bool $isSourceDirty = true;
+    /** @var bool */
+    protected $isSourceDirty = true;
 
-    /** @var string 4 spaces by default */
-    protected string $indentation = '    ';
+    /** @var int|string 4 spaces by default */
+    protected $indentation = '    ';
 
-    /**
-     * TODO: Type should be changed to "string" in the next major version. Nullable for BC
-     */
-    protected ?string $sourceContent = null;
+    /** @var string */
+    protected $sourceContent;
 
     /**
      * @param  array $options
@@ -81,7 +80,7 @@ abstract class AbstractGenerator implements GeneratorInterface
     }
 
     /**
-     * @param  ?string $sourceContent
+     * @param  string $sourceContent
      * @return AbstractGenerator
      */
     public function setSourceContent($sourceContent)
@@ -91,7 +90,7 @@ abstract class AbstractGenerator implements GeneratorInterface
     }
 
     /**
-     * @return ?string
+     * @return string
      */
     public function getSourceContent()
     {

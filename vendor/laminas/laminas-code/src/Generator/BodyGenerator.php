@@ -10,7 +10,8 @@ namespace Laminas\Code\Generator;
 
 class BodyGenerator extends AbstractGenerator
 {
-    protected string $content = '';
+    /** @var string */
+    protected $content;
 
     /**
      * @param  string $content

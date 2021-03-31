@@ -16,19 +16,26 @@ use function strtolower;
 
 class ParameterGenerator extends AbstractGenerator
 {
-    protected string $name = '';
+    /** @var string */
+    protected $name;
 
-    protected ?TypeGenerator $type = null;
+    /** @var TypeGenerator|null */
+    protected $type;
 
-    protected ?ValueGenerator $defaultValue = null;
+    /** @var ValueGenerator */
+    protected $defaultValue;
 
-    protected int $position = 0;
+    /** @var int */
+    protected $position;
 
-    protected bool $passedByReference = false;
+    /** @var bool */
+    protected $passedByReference = false;
 
-    private bool $variadic = false;
+    /** @var bool */
+    private $variadic = false;
 
-    private bool $omitDefaultValue = false;
+    /** @var bool */
+    private $omitDefaultValue = false;
 
     /**
      * @return ParameterGenerator
@@ -121,10 +128,10 @@ class ParameterGenerator extends AbstractGenerator
     }
 
     /**
-     * @param  ?string $name
-     * @param  ?string $type
-     * @param  ?mixed $defaultValue
-     * @param  ?int $position
+     * @param  string $name
+     * @param  string $type
+     * @param  mixed $defaultValue
+     * @param  int $position
      * @param  bool $passByReference
      */
     public function __construct(
@@ -209,7 +216,7 @@ class ParameterGenerator extends AbstractGenerator
     }
 
     /**
-     * @return ?ValueGenerator
+     * @return ValueGenerator
      */
     public function getDefaultValue()
     {

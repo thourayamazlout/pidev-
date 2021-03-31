@@ -13,6 +13,7 @@ namespace Symfony\Bundle\MakerBundle\Maker;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\DBAL\Types\Type;
+use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Symfony\Bundle\MakerBundle\ConsoleStyle;
 use Symfony\Bundle\MakerBundle\DependencyBuilder;
 use Symfony\Bundle\MakerBundle\Doctrine\DoctrineHelper;
@@ -808,7 +809,9 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
             $className = reset($otherClassMetadatas)->getName();
         }
 
-        return $this->doctrineHelper->isClassAnnotated($className);
+        $driver = $this->doctrineHelper->getMappingDriverForClass($className);
+
+        return $driver instanceof AnnotationDriver;
     }
 
     private function getEntityNamespace(): string

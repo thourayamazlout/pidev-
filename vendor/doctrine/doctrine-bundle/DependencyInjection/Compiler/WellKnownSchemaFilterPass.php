@@ -12,8 +12,6 @@ use Symfony\Component\Messenger\Transport\Doctrine\Connection as LegacyConnectio
 
 /**
  * Blacklist tables used by well-known Symfony classes.
- *
- * @deprecated Implement your own include/exclude mechanism
  */
 class WellKnownSchemaFilterPass implements CompilerPassInterface
 {

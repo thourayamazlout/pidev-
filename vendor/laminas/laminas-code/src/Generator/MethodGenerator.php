@@ -24,16 +24,20 @@ use function trim;
 
 class MethodGenerator extends AbstractMemberGenerator
 {
-    protected ?DocBlockGenerator $docBlock = null;
+    /** @var DocBlockGenerator */
+    protected $docBlock;
 
     /** @var ParameterGenerator[] */
-    protected array $parameters = [];
+    protected $parameters = [];
 
-    protected string $body = '';
+    /** @var string */
+    protected $body;
 
-    private ?TypeGenerator $returnType = null;
+    /** @var null|TypeGenerator */
+    private $returnType;
 
-    private bool $returnsReference = false;
+    /** @var bool */
+    private $returnsReference = false;
 
     /**
      * @return MethodGenerator
@@ -182,11 +186,11 @@ class MethodGenerator extends AbstractMemberGenerator
     }
 
     /**
-     * @param  ?string                              $name
-     * @param ParameterGenerator[]|array[]|string[] $parameters
-     * @param int|int[]                             $flags
-     * @param  ?string                              $body
-     * @param DocBlockGenerator|string|null         $docBlock
+     * @param  string $name
+     * @param  array $parameters
+     * @param  int $flags
+     * @param  string $body
+     * @param  DocBlockGenerator|string $docBlock
      */
     public function __construct(
         $name = null,
@@ -213,7 +217,7 @@ class MethodGenerator extends AbstractMemberGenerator
     }
 
     /**
-     * @param  ParameterGenerator[]|array[]|string[] $parameters
+     * @param  array $parameters
      * @return MethodGenerator
      */
     public function setParameters(array $parameters)

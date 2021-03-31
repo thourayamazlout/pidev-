@@ -403,12 +403,11 @@ final class MakeAuthenticator extends AbstractMaker
     private function providerKeyTypeHint(): string
     {
         $reflectionMethod = new \ReflectionMethod(AbstractFormLoginAuthenticator::class, 'onAuthenticationSuccess');
-        $type = $reflectionMethod->getParameters()[2]->getType();
-
-        if (!$type instanceof \ReflectionNamedType) {
-            return '';
+        $typeHint = (string) $reflectionMethod->getParameters()[2]->getType();
+        if ($typeHint) {
+            $typeHint .= ' ';
         }
 
-        return sprintf('%s ', $type->getName());
+        return $typeHint;
     }
 }

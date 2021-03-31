@@ -5,7 +5,6 @@ namespace Doctrine\Bundle\DoctrineBundle;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\CacheSchemaSubscriberPass;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DbalSchemaFilterPass;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\EntityListenerPass;
-use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\IdGeneratorPass;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\ServiceRepositoryCompilerPass;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\WellKnownSchemaFilterPass;
 use Doctrine\Common\Util\ClassUtils;
@@ -43,7 +42,6 @@ class DoctrineBundle extends Bundle
         $container->addCompilerPass(new DoctrineValidationPass('orm'));
         $container->addCompilerPass(new EntityListenerPass());
         $container->addCompilerPass(new ServiceRepositoryCompilerPass());
-        $container->addCompilerPass(new IdGeneratorPass());
         $container->addCompilerPass(new WellKnownSchemaFilterPass());
         $container->addCompilerPass(new DbalSchemaFilterPass());
         $container->addCompilerPass(new CacheSchemaSubscriberPass(), PassConfig::TYPE_BEFORE_REMOVING, -10);

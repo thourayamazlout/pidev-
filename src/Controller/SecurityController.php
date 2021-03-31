@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Form\ResetPassType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -108,7 +109,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/user/oubli-pass", name="app_forgotten_password")
      */
-    public function oubliPass(Request $request, UserRepository $users, \Swift_Mailer $mailer , TokenGeneratorInterface $tokenGenerator): Response
+    public function oubliPass(Request $request, UserRepository $users, Swift_Mailer $mailer , TokenGeneratorInterface $tokenGenerator): Response
     {
         // On initialise le formulaire
         $form = $this->createForm(ResetPassType::class);
@@ -153,11 +154,10 @@ class SecurityController extends AbstractController
             // On génère l'e-mail
             $message = (new \Swift_Message('Mot de passe oublié'))
                 ->setFrom('rayenbd63s@gmail.com')
-                ->setTo($user->getEmail())
+                ->setTo('rayen.bendriaa@esprit.tn')
                 ->setBody(
                     "Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site Nouvelle-Techno.fr. Veuillez cliquer sur le lien suivant : " . $url,
-                    'text/html'
-                )
+                    'text/html')
             ;
 
             // On envoie l'e-mail

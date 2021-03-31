@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerZGeEXQt/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerQrisExA/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -28,6 +28,7 @@ $classes[] = 'Symfony\Bundle\WebServerBundle\WebServerBundle';
 $classes[] = 'Vich\UploaderBundle\VichUploaderBundle';
 $classes[] = 'Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle';
 $classes[] = 'Knp\Bundle\PaginatorBundle\KnpPaginatorBundle';
+$classes[] = 'CMEN\GoogleChartsBundle\CMENGoogleChartsBundle';
 $classes[] = 'Symfony\Component\HttpClient\TraceableHttpClient';
 $classes[] = 'Symfony\Contracts\HttpClient\HttpClientInterface';
 $classes[] = 'Symfony\Component\HttpClient\HttpClient';
@@ -184,7 +185,6 @@ $classes[] = 'Symfony\Component\HttpKernel\EventListener\DumpListener';
 $classes[] = 'Symfony\Component\VarDumper\Dumper\ContextualizedDumper';
 $classes[] = 'Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider';
 $classes[] = 'Symfony\Component\HttpKernel\Debug\FileLinkFormatter';
-$classes[] = 'string';
 $classes[] = 'Symfony\Bridge\Monolog\Processor\DebugProcessor';
 $classes[] = 'Symfony\Component\Security\Core\Authorization\TraceableAccessDecisionManager';
 $classes[] = 'Symfony\Component\Security\Core\Authorization\AccessDecisionManager';
@@ -224,10 +224,11 @@ $classes[] = 'Doctrine\Migrations\Configuration\Migration\ExistingConfiguration'
 $classes[] = 'Doctrine\Migrations\Configuration\Configuration';
 $classes[] = 'Doctrine\Migrations\Metadata\Storage\TableMetadataStorageConfiguration';
 $classes[] = 'Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager';
-$classes[] = 'Doctrine\ORM\Mapping\Driver\AnnotationDriver';
+$classes[] = 'Doctrine\ORM\Proxy\Autoloader';
 $classes[] = 'Doctrine\ORM\EntityManager';
 $classes[] = 'Doctrine\ORM\Configuration';
 $classes[] = 'Doctrine\Persistence\Mapping\Driver\MappingDriverChain';
+$classes[] = 'Doctrine\ORM\Mapping\Driver\AnnotationDriver';
 $classes[] = 'Doctrine\ORM\Mapping\UnderscoreNamingStrategy';
 $classes[] = 'Doctrine\ORM\Mapping\DefaultQuoteStrategy';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver';
@@ -533,6 +534,12 @@ $classes[] = 'Vich\UploaderBundle\Twig\Extension\UploaderExtension';
 $classes[] = 'Vich\UploaderBundle\Templating\Helper\UploaderHelper';
 $classes[] = 'Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension';
 $classes[] = 'Knp\Bundle\PaginatorBundle\Helper\Processor';
+$classes[] = 'CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension';
+$classes[] = 'CMEN\GoogleChartsBundle\Output\Javascript\ChartOutput';
+$classes[] = 'CMEN\GoogleChartsBundle\Output\Javascript\OptionsOutput';
+$classes[] = 'CMEN\GoogleChartsBundle\Output\Javascript\DateOutput';
+$classes[] = 'CMEN\GoogleChartsBundle\Output\Javascript\DataOutput';
+$classes[] = 'CMEN\GoogleChartsBundle\Output\Javascript\EventsOutput';
 $classes[] = 'Symfony\Bridge\Twig\AppVariable';
 $classes[] = 'Twig\RuntimeLoader\ContainerRuntimeLoader';
 $classes[] = 'Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor';

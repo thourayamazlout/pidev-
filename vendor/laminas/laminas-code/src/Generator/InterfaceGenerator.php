@@ -50,11 +50,9 @@ class InterfaceGenerator extends ClassGenerator
         }
 
         foreach ($classReflection->getMethods() as $reflectionMethod) {
-            $className     = $cg->getName();
-            $namespaceName = $cg->getNamespaceName();
-            if ($namespaceName !== null) {
-                $className = $namespaceName . '\\' . $className;
-            }
+            $className = $cg->getNamespaceName()
+                ? $cg->getNamespaceName() . '\\' . $cg->getName()
+                : $cg->getName();
 
             if ($reflectionMethod->getDeclaringClass()->getName() == $className) {
                 $methods[] = MethodGenerator::fromReflection($reflectionMethod);

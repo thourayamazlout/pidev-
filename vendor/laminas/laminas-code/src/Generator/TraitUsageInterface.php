@@ -41,8 +41,7 @@ interface TraitUsageInterface
      *      key: method value: @see self::addTraitOverride
      *      key: traitToReplace value: @see self::addTraitOverride
      *
-     * @param string|array $trait
-     * @psalm-param string|array{traitName: string, aliases?: array, insteadof?: array} $trait
+     * @param mixed $trait String | Array
      * @return self
      */
     public function addTrait($trait);
@@ -52,7 +51,6 @@ interface TraitUsageInterface
      * configurations
      *
      * @param array $traits Array of string names or configurations (@see addTrait)
-     * @psalm-param list<string|array{traitName: string, aliases?: array, insteadof?: array}> $traits
      * @return self
      */
     public function addTraits(array $traits);

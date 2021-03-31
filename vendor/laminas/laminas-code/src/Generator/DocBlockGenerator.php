@@ -23,17 +23,23 @@ use function wordwrap;
 
 class DocBlockGenerator extends AbstractGenerator
 {
-    protected string $shortDescription = '';
+    /** @var string */
+    protected $shortDescription;
 
-    protected string $longDescription = '';
+    /** @var string */
+    protected $longDescription;
 
-    protected array $tags = [];
+    /** @var array */
+    protected $tags = [];
 
-    protected string $indentation = '';
+    /** @var string */
+    protected $indentation = '';
 
-    protected bool $wordwrap = true;
+    /** @var bool */
+    protected $wordwrap = true;
 
-    protected static ?TagManager $tagManager = null;
+    /** @var TagManager|null */
+    protected static $tagManager;
 
     /**
      * Build a DocBlock generator object from a reflection object
@@ -102,9 +108,9 @@ class DocBlockGenerator extends AbstractGenerator
     }
 
     /**
-     * @param ?string                $shortDescription
-     * @param ?string                $longDescription
-     * @param array[]|TagInterface[] $tags
+     * @param  string $shortDescription
+     * @param  string $longDescription
+     * @param  array $tags
      */
     public function __construct($shortDescription = null, $longDescription = null, array $tags = [])
     {
@@ -114,7 +120,7 @@ class DocBlockGenerator extends AbstractGenerator
         if ($longDescription) {
             $this->setLongDescription($longDescription);
         }
-        if ($tags) {
+        if (is_array($tags) && $tags) {
             $this->setTags($tags);
         }
     }
@@ -156,7 +162,7 @@ class DocBlockGenerator extends AbstractGenerator
     }
 
     /**
-     * @param  array[]|TagInterface[] $tags
+     * @param  array $tags
      * @return DocBlockGenerator
      */
     public function setTags(array $tags)
@@ -224,7 +230,7 @@ class DocBlockGenerator extends AbstractGenerator
     public function generate()
     {
         if (! $this->isSourceDirty()) {
-            return $this->docCommentize(trim($this->getSourceContent() ?? ''));
+            return $this->docCommentize(trim($this->getSourceContent()));
         }
 
         $output = '';

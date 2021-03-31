@@ -61,5 +61,12 @@ class ThourayaController extends AbstractController
         $retour=json_encode($jsonContent);
         return new Response($retour);
     }
+    /**
+     * @Route("/thouraya/map", name="map")
+     */
+    public function map ()
+    {
+        return $this->render('thouraya/map.html.twig');
+    }
 
 }

@@ -299,7 +299,7 @@ final class CheckTypeDeclarationsPass extends AbstractRecursivePass
             }
         }
 
-        throw new InvalidParameterTypeException($this->currentId, \is_object($value) ? $class : \gettype($value), $parameter);
+        throw new InvalidParameterTypeException($this->currentId, \is_object($value) ? $class : get_debug_type($value), $parameter);
     }
 
     private function getExpressionLanguage(): ExpressionLanguage

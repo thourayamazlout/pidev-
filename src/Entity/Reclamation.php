@@ -29,11 +29,12 @@ class Reclamation
     private $textreclamation;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idUser;
+
+
 
     public function getIdReclamation(): ?int
     {

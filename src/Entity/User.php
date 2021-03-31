@@ -108,7 +108,7 @@ class User implements UserInterface
     private $reset_token;
 
 
-    private $captcha;
+    public $captcha;
 
 
 
@@ -124,6 +124,7 @@ class User implements UserInterface
     public function getCaptcha(){
         return $this->captcha;
     }
+
 
     public function getIdUser(): ?int
     {

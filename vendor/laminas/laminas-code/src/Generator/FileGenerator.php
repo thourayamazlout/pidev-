@@ -45,36 +45,38 @@ use const T_WHITESPACE;
 
 class FileGenerator extends AbstractGenerator
 {
-    protected string $filename = '';
+    /** @var string */
+    protected $filename;
 
-    protected ?DocBlockGenerator $docBlock = null;
+    /** @var DocBlockGenerator */
+    protected $docBlock;
 
-    /** @var string[] */
-    protected array $requiredFiles = [];
+    /** @var array */
+    protected $requiredFiles = [];
 
-    protected string $namespace = '';
-
-    /** @psalm-var list<array{string, string|null}> */
-    protected array $uses = [];
-
+    /** @var string */
+    protected $namespace;
+    /**
+     * @var array
+     * @psalm-var list<array{string, string|null}>
+     */
+    protected $uses = [];
     /**
      * @var ClassGenerator[]
      * @psalm-var array<string, ClassGenerator>
      */
-    protected array $classes = [];
+    protected $classes = [];
 
-    protected string $body = '';
+    /** @var string */
+    protected $body;
 
-    /**
-     * @var DeclareStatement[]
-     * @psalm-var array<string, DeclareStatement>
-     */
-    protected array $declares = [];
+    /** @var DeclareStatement[] */
+    protected $declares = [];
 
     /**
      * Passes $options to {@link setOptions()}.
      *
-     * @param array|Traversable|null $options
+     * @param array|Traversable $options
      */
     public function __construct($options = null)
     {
@@ -148,7 +150,7 @@ class FileGenerator extends AbstractGenerator
     }
 
     /**
-     * @return ?DocBlockGenerator
+     * @return DocBlockGenerator
      */
     public function getDocBlock()
     {
@@ -156,7 +158,7 @@ class FileGenerator extends AbstractGenerator
     }
 
     /**
-     * @param  string[] $requiredFiles
+     * @param  array $requiredFiles
      * @return FileGenerator
      */
     public function setRequiredFiles(array $requiredFiles)
@@ -166,7 +168,7 @@ class FileGenerator extends AbstractGenerator
     }
 
     /**
-     * @return string[]
+     * @return array
      */
     public function getRequiredFiles()
     {
@@ -256,7 +258,7 @@ class FileGenerator extends AbstractGenerator
     }
 
     /**
-     * @param  array[]|string[]|ClassGenerator[] $classes
+     * @param  array $classes
      * @return FileGenerator
      */
     public function setClasses(array $classes)
@@ -362,14 +364,10 @@ class FileGenerator extends AbstractGenerator
         return $this->body;
     }
 
-    /**
-     * @param DeclareStatement[] $declares
-     * @return static
-     */
+    /** @return static */
     public function setDeclares(array $declares)
     {
         foreach ($declares as $declare) {
-            /** @psalm-suppress DocblockTypeContradiction $declare should be always DeclareStatement */
             if (! $declare instanceof DeclareStatement) {
                 throw new InvalidArgumentException(sprintf(
                     '%s is expecting an array of %s objects',
@@ -411,7 +409,7 @@ class FileGenerator extends AbstractGenerator
     public function generate()
     {
         if ($this->isSourceDirty() === false) {
-            return $this->sourceContent ?? '';
+            return $this->sourceContent;
         }
 
         $output = '';

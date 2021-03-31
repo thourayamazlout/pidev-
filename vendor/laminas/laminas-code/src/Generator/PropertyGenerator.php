@@ -18,11 +18,14 @@ class PropertyGenerator extends AbstractMemberGenerator
 {
     public const FLAG_CONSTANT = 0x08;
 
-    protected bool $isConst = false;
+    /** @var bool */
+    protected $isConst;
 
-    protected ?PropertyValueGenerator $defaultValue = null;
+    /** @var PropertyValueGenerator */
+    protected $defaultValue;
 
-    private bool $omitDefaultValue = false;
+    /** @var bool */
+    private $omitDefaultValue = false;
 
     /**
      * @return static
@@ -125,8 +128,8 @@ class PropertyGenerator extends AbstractMemberGenerator
     }
 
     /**
-     * @param ?string $name
-     * @param PropertyValueGenerator|string|array|null $defaultValue
+     * @param string $name
+     * @param PropertyValueGenerator|string|array $defaultValue
      * @param int $flags
      */
     public function __construct($name = null, $defaultValue = null, $flags = self::FLAG_PUBLIC)
@@ -186,7 +189,7 @@ class PropertyGenerator extends AbstractMemberGenerator
     }
 
     /**
-     * @return ?PropertyValueGenerator
+     * @return PropertyValueGenerator
      */
     public function getDefaultValue()
     {

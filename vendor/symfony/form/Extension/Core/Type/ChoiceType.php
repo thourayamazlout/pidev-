@@ -141,8 +141,6 @@ class ChoiceType extends AbstractType
                             $knownValues[$child->getName()] = $value;
                             unset($unknownValues[$value]);
                             continue;
-                        } else {
-                            $knownValues[$child->getName()] = null;
                         }
                     }
                 } else {
