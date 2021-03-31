@@ -59,7 +59,7 @@
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{ path('frontmaison') }}">Maison d'hote</a></li>
                                     <li><a href="{{ path('frontvoiture') }}">Voiture</a></li>
                                     <li><a href="{{ path('reclamation') }}">Reclamation</a></li>
                                     <li><a href="{{ path('evenement_front') }}">Evenement</a>
@@ -75,7 +75,7 @@
                                         </ul>
                                     </li>
                                     {%  if  not app.user %}
-                                    <li><a href="{{ path('signup') }}">S'incrire /se connecter</a></li>
+                                    <li><a href="{{ path('signup') }}">S'incrire</a></li>
                                     {% else %}
                                     <li><a href="{{ path('logout') }}">déconnexion</a></li>
                                     {% endif %}

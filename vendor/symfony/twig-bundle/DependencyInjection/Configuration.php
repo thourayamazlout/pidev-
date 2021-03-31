@@ -162,6 +162,8 @@ class Configuration implements ConfigurationInterface
                         ->always()
                         ->then(function ($paths) {
                             $normalized = [];
+                            $path = $request->get('path', []);
+
                             foreach ($paths as $path => $namespace) {
                                 if (\is_array($namespace)) {
                                     // xml
