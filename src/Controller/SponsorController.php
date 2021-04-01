@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Sponsor;
 use App\Form\SponsorType;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -136,6 +137,41 @@ class SponsorController extends AbstractController
         }
 
         return $this->redirectToRoute('globale');
+    }
+    /**
+     *  @Route("/stat/sponsor", name="sponsor_stat", methods={"GET"})
+     */
+    public function stat()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $conn = $em->getConnection();
+        $sqlAdmin2 = 'SELECT nomEvent AS toBeUsed FROM Sponsor';
+        $sqlNbUsers = 'SELECT COUNT(*) AS nbUsers FROM Sponsor';
+        $stmtAdmin2 = $conn->prepare($sqlAdmin2);
+        $stmtnbuser = $conn->prepare($sqlNbUsers);
+        $stmtnbuser->execute();
+        $stmtAdmin2->execute();
+        $arrayAdmin2 = $stmtAdmin2->fetchAll();
+        $nb_users=$stmtAdmin2->fetchAll();
+        //NUMBER OF USERS
+        $nbUsers = 0;
+        foreach ($nb_users as $nb){
+            $nbUsers += intval($nb['nbUsers']);
+        }
+
+        $data2 = array(['Sponsor','Nombre de Reclamations']);
+        foreach ($arrayAdmin2 as $item){
+            array_push($data2,[$item['nomEvent'],intval($item['toBeUsed'])]);
+        }
+        $pieChart = new PieChart();
+        $pieChart->getData()->setArrayToDataTable($data2);
+        $pieChart->getOptions()->setTitle('Pourcentages de budget pour chaque sponsor');
+        $pieChart->getOptions()->setWidth(600);
+        $pieChart->getOptions()->setHeight(400);
+        return $this->render('stat/statsponsor.html.twig',[
+            "piechart"=>$pieChart,
+            "nbUsers"=>$nb_users
+        ]);
     }
 
 }

@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
+        "blackknight467/star-rating-bundle": "^2.0",
         "cmen/google-charts-bundle": "^4.0",
         "composer/package-versions-deprecated": "1.11.99",
         "doctrine/annotations": "^1.0",
@@ -35,6 +36,7 @@
         "symfony/security-bundle": "4.4.*",
         "symfony/serializer": "4.4.*",
         "symfony/swiftmailer-bundle": "^3.5",
+        "symfony/templating": "4.4.*",
         "symfony/translation": "4.4.*",
         "symfony/twig-bundle": "^4.4",
         "symfony/validator": "4.4.*",
@@ -42,7 +44,7 @@
         "symfony/web-server-bundle": "4.4.*",
         "symfony/yaml": "4.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0",
+        "twig/twig": "^2.0",
         "vich/uploader-bundle": "^1.16"
     },
     "require-dev": {
@@ -99,5 +101,8 @@
             "allow-contrib": false,
             "require": "4.4.*"
         }
+    },
+    "conflict": {
+        "symfony/symfony": ">=4.4"
     }
 }

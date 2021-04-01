@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Sponsor
  *
  * @ORM\Table(name="sponsor")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\SponsorRepository")
  */
 class Sponsor
 {
